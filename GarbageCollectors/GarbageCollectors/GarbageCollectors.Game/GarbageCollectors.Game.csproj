@@ -111,15 +111,17 @@
     <Compile Include="BackgroundLayer.cs" />
     <Compile Include="BaseSpawner.cs" />
     <Compile Include="Bezier.cs" />
+    <Compile Include="CapturePoint.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="Garbage.cs" />
+    <Compile Include="Grabber.cs" />
     <Compile Include="InputState.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerSpawner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ship.cs" />
     <Compile Include="ShipController.cs" />
-    <Compile Include="SpawnScript.cs" />
+    <Compile Include="ObjectSpawnPoint.cs" />
     <Compile Include="Team.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

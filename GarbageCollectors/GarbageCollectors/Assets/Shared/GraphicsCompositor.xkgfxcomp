@@ -162,13 +162,20 @@ SharedRenderers:
             Enabled: false
             DOFAreas: {X: 0.5, Y: 6.0, Z: 50.0, W: 200.0}
         BrightFilter:
+            Threshold*: 1.0
+            Steepness*: 1.0
             Color: {R: 1.0, G: 1.0, B: 1.0}
         Bloom:
+            Amount*: 0.3
             Distortion: {X: 1.0, Y: 1.0}
             Afterimage:
                 Enabled: false
         LightStreak:
-            Attenuation: 0.7
+            StreakCount*: 3
+            Attenuation*: 0.51
+            Phase*: 84.9
+            ColorAberrationStrength*: 0.22
+            IsAnamorphic*: true
         LensFlare: {}
         ColorTransforms:
             Transforms:

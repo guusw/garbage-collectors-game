@@ -9,9 +9,10 @@ namespace GarbageCollectors
     public class PlayerSpawner : BaseSpawner
     {
         private Dictionary<Entity, Player> playerMap = new Dictionary<Entity, Player>();
-
+        
         public ShipController SpawnForPlayer(Player player)
         {
+            Entity.Transform.UpdateWorldMatrix();
             var newEntity = Spawn(Entity.Transform.WorldMatrix.TranslationVector);
 
             // Create a ship

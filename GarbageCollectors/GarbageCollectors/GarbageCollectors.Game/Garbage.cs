@@ -55,6 +55,7 @@ namespace GarbageCollectors
             Rigidbody.AngularFactor = new Vector3(1, 1, 1);
             Rigidbody.OverrideGravity = true;
             Rigidbody.Gravity = Vector3.Zero;
+            Rigidbody.CollisionGroup = CollisionFilterGroups.CustomFilter1;
         }
 
         public override void Update()
@@ -87,13 +88,13 @@ namespace GarbageCollectors
             Rigidbody.AngularVelocity = new Vector3(
                 (float)random.NextDouble() * MathUtil.TwoPi,
                 (float)random.NextDouble() * MathUtil.TwoPi,
-                (float)random.NextDouble() * MathUtil.TwoPi) * InitialAngularVelocityMultiplier;
+                (float)random.NextDouble() * MathUtil.TwoPi) * 2.0f - 1.0f * InitialAngularVelocityMultiplier;
             Rigidbody.AngularDamping = 0.0f;
 
             Vector3 d = new Vector3(
                 (float)random.NextDouble(),
                 (float)random.NextDouble(),
-                0);
+                0.5f) * 2.0f - 1.0f;
             if (d.LengthSquared() > 0)
             {
                 d.Normalize();

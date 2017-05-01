@@ -13,14 +13,13 @@ Hierarchy:
         - b318bd96-36be-4a99-a24f-9bee7868cf30
         - 9df2af2b-98af-461a-8089-c90dacceb1ac
         - 5e36d795-b18c-4582-9947-1dd6b26d18f5
-        - 12bc1995-88e1-4ca4-91c1-c1114e72806b
-        - 1ad9765a-15d5-4d34-bd1b-b7683bbdca7f
         - 0a8afe25-e13c-4637-a7b6-7addd7b8c67e
         - d44e4921-1f0d-4130-8052-a2b3434af6eb
         - dec35148-52ac-4193-94a9-0d3ee36259b8
         - 7841fc37-43ce-435c-924c-5a2e2386b100
         - c3e2b839-c7cf-44e4-8ab9-0bae9f51652d
         - 2d18debb-7fa5-47a8-87c4-e9d791d0b6e2
+        - 3a13a639-1940-4689-9b34-7ab13424cec3
     Parts:
         -   Entity:
                 Id: 0a8afe25-e13c-4637-a7b6-7addd7b8c67e
@@ -41,27 +40,36 @@ Hierarchy:
                 Components:
                     b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
                         Id: b843e169-0a4b-47e4-8ad4-30779267e124
-                        Position: {X: -1.5, Y: 2.5, Z: 0.0}
+                        Position: {X: -2.0, Y: 3.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    f9bc0c3376eeb04b10e507d58a88e47c: !GarbageCollectors.SpawnScript,GarbageCollectors.Game
-                        Id: dbb6d5b7-de58-4fa4-a0be-17e10fd9f33f
-                        Prefab: 17e24fd2-9236-4d6b-9389-679a12599175:Prefabs/Garbage
-        -   Folder: null
-            Entity:
+                    d05653ee5e237f71917e73402c85837d: !GarbageCollectors.ObjectSpawnPoint,GarbageCollectors.Game
+                        Id: 97259e65-d49f-4b9c-9c38-15158ecee31b
+        -   Entity:
                 Id: 1ad9765a-15d5-4d34-bd1b-b7683bbdca7f
                 Name: ObjectSpawner 1
                 Components:
                     b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
                         Id: f2f97f8c-7e51-4f6e-ac68-cfc29155a210
-                        Position: {X: 1.5, Y: -2.5, Z: 0.0}
+                        Position: {X: 2.0, Y: -1.5, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    f9bc0c3376eeb04b10e507d58a88e47c: !GarbageCollectors.SpawnScript,GarbageCollectors.Game
-                        Id: 4ed4b921-07b0-4f8a-af70-bd014abc5918
-                        Prefab: 17e24fd2-9236-4d6b-9389-679a12599175:Prefabs/Garbage
+                    0391eeb8e9087164993b143449c836f6: !GarbageCollectors.ObjectSpawnPoint,GarbageCollectors.Game
+                        Id: 03f5db58-6e37-4ed8-a806-712c78cf0e03
+        -   Entity:
+                Id: 1b5942b8-ff31-4ff8-bfdb-974b5b27d385
+                Name: ObjectSpawner 1
+                Components:
+                    b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
+                        Id: 771e769e-830f-41e8-aca7-185e2f642d1e
+                        Position: {X: -2.0, Y: -0.5, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    0391eeb8e9087164993b143449c836f6: !GarbageCollectors.ObjectSpawnPoint,GarbageCollectors.Game
+                        Id: 38870b93-db5c-40a3-877d-9c440db654d2
         -   Entity:
                 Id: 25b37d5e-9e44-4ed0-8ace-845c3742c8da
                 Name: Camera
@@ -81,7 +89,7 @@ Hierarchy:
         -   Folder: null
             Entity:
                 Id: 2d18debb-7fa5-47a8-87c4-e9d791d0b6e2
-                Name: BackgroundLayer1
+                Name: BackgroundLayer2
                 Components:
                     694c9f5ed858951b6e12b3a957c74a10: !TransformComponent
                         Id: f014f315-0f8a-4383-aba0-18133ea8d8c8
@@ -93,8 +101,38 @@ Hierarchy:
                     70ac8925dde54b200967756ad10bb0df: !GarbageCollectors.BackgroundLayer,GarbageCollectors.Game
                         Id: f053bbc0-b884-499f-a142-104891fd5507
                         RotationSpeed: {Radians: 0.00523598772}
-                        CircularMovement: {Radians: 0.00174532924}
+                        CircularMovement: {Radians: 0.08726646}
                         CircularMovementRadius: 5.0
+        -   Entity:
+                Id: 3a13a639-1940-4689-9b34-7ab13424cec3
+                Name: Spawners
+                Components:
+                    ff91e138d1a699629abc84338ef0e147: !TransformComponent
+                        Id: a20d8c9f-d234-47f7-87f2-b7dc694ffa10
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            b1a00e0e6447b55e9930e51b79a050f3: ref!! b843e169-0a4b-47e4-8ad4-30779267e124
+                            1bd2a282e4c347657cefe71b9b9dc9fd: ref!! f2f97f8c-7e51-4f6e-ac68-cfc29155a210
+                            b9249cdd5ac02685d5b2259d07bb3b5e: ref!! c4b6e223-083e-4ec5-994a-c463e76dfdc8
+                            2bb545635ea466d329a71a66b07716ae: ref!! 771e769e-830f-41e8-aca7-185e2f642d1e
+                            377961e847b9c8eea65af67a35e2737f: ref!! 037cc281-2535-4c0e-9e13-40f906dfb85b
+                            fcd227b42b31edf8a840bc1c95ce2e89: ref!! 4e67b8ac-b6b3-407f-a109-7c0de89cfadf
+                            3662bf78d6f27c6e8a17270b9022eb06: ref!! 9db8651d-db16-436b-bfdc-70c808b1b8bd
+                            148938088742c5fa1fe9dcd23130546a: ref!! 8667bcf4-7450-426a-99ab-d86cb73aab79
+        -   Entity:
+                Id: 4c23dd03-d05d-4047-b4b0-c28425090c9e
+                Name: ObjectSpawner 1
+                Components:
+                    b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
+                        Id: 9db8651d-db16-436b-bfdc-70c808b1b8bd
+                        Position: {X: 0.5, Y: -3.50000024, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    0391eeb8e9087164993b143449c836f6: !GarbageCollectors.ObjectSpawnPoint,GarbageCollectors.Game
+                        Id: 74f28b56-0c70-4f3e-b3e9-9daf49a5a37d
         -   Folder: null
             Entity:
                 Id: 5e36d795-b18c-4582-9947-1dd6b26d18f5
@@ -113,6 +151,7 @@ Hierarchy:
                             1f66d7610cd6dc4c9b32d800d312e162*~0: d09967b7-528e-4bd7-b166-b08683ab3781:Materials/Wall
                     d85b2b6e072fba4f9eac30a89cde96ea: !StaticColliderComponent
                         Id: 5e7024cf-2398-4a10-9694-d74a149ee7ea
+                        CanCollideWith*: DefaultFilter
                         CanSleep: true
                         Restitution: 0.0
                         Friction: 0.5
@@ -154,6 +193,18 @@ Hierarchy:
                                 BiasParameters: {}
                         Intensity: 2.0
         -   Entity:
+                Id: 6d19f124-0824-4384-b901-6f7a8f9dcfd8
+                Name: ObjectSpawner 1
+                Components:
+                    b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
+                        Id: c4b6e223-083e-4ec5-994a-c463e76dfdc8
+                        Position: {X: -1.5, Y: -3.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    0391eeb8e9087164993b143449c836f6: !GarbageCollectors.ObjectSpawnPoint,GarbageCollectors.Game
+                        Id: 96274d2f-44c3-4820-85a3-2a0b281842fe
+        -   Entity:
                 Id: 7841fc37-43ce-435c-924c-5a2e2386b100
                 Name: BackgroundLayer0
                 Components:
@@ -187,6 +238,7 @@ Hierarchy:
                             1f66d7610cd6dc4c9b32d800d312e162*~0: d09967b7-528e-4bd7-b166-b08683ab3781:Materials/Wall
                     d85b2b6e072fba4f9eac30a89cde96ea: !StaticColliderComponent
                         Id: 00d326ae-8c77-4972-acd0-155012f14ff0
+                        CanCollideWith*: DefaultFilter
                         CanSleep: true
                         Restitution: 0.0
                         Friction: 0.5
@@ -204,6 +256,18 @@ Hierarchy:
                 BasePartAsset: aaefcf1a-b6d2-4bdb-b0ba-20bfa8e393e2:BlocksPrefabs/Box3x1x1
                 BasePartId: b86036f4-0ce3-4794-9947-a61378390d41
                 InstanceId: abedfbd4-99ed-4191-acdb-699731a08e60
+        -   Entity:
+                Id: ada1b4d0-45c7-4192-b9b9-0576b79ad91e
+                Name: ObjectSpawner 1
+                Components:
+                    b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
+                        Id: 8667bcf4-7450-426a-99ab-d86cb73aab79
+                        Position: {X: -4.0, Y: 1.99999976, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    0391eeb8e9087164993b143449c836f6: !GarbageCollectors.ObjectSpawnPoint,GarbageCollectors.Game
+                        Id: d3c1c6aa-29fc-46e9-bab9-bbdfcfb4d56b
         -   Folder: null
             Entity:
                 Id: b318bd96-36be-4a99-a24f-9bee7868cf30
@@ -222,6 +286,7 @@ Hierarchy:
                             1f66d7610cd6dc4c9b32d800d312e162*~0: d09967b7-528e-4bd7-b166-b08683ab3781:Materials/Wall
                     d85b2b6e072fba4f9eac30a89cde96ea: !StaticColliderComponent
                         Id: 78d71fcf-2c9f-47a0-8c17-1b3234cb0605
+                        CanCollideWith*: DefaultFilter
                         CanSleep: true
                         Restitution: 0.0
                         Friction: 0.5
@@ -239,6 +304,18 @@ Hierarchy:
                 BasePartAsset: aaefcf1a-b6d2-4bdb-b0ba-20bfa8e393e2:BlocksPrefabs/Box3x1x1
                 BasePartId: b86036f4-0ce3-4794-9947-a61378390d41
                 InstanceId: c6ca1774-b187-4f9a-8ef2-93841fc48229
+        -   Entity:
+                Id: bde27d6b-5546-45e4-a8ab-1359c3cb5c68
+                Name: ObjectSpawner 1
+                Components:
+                    b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
+                        Id: 4e67b8ac-b6b3-407f-a109-7c0de89cfadf
+                        Position: {X: 0.5, Y: 3.49999976, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    0391eeb8e9087164993b143449c836f6: !GarbageCollectors.ObjectSpawnPoint,GarbageCollectors.Game
+                        Id: a345c83c-57a1-4266-b48f-7eb92762cd24
         -   Entity:
                 Id: bf5c8bec-8f6d-4b80-8bf3-5a642425c830
                 Name: GridBase10x10
@@ -261,7 +338,7 @@ Hierarchy:
                 Components:
                     694c9f5ed858951b6e12b3a957c74a10: !TransformComponent
                         Id: 5ba7eaa3-c76a-4792-acc7-7e82d82bff52
-                        Position: {X: 0.0, Y: 0.0, Z: -25.0}
+                        Position: {X: 0.0, Y: 0.0, Z: -23.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: -0.447253555, W: 0.8944072}
                         Scale: {X: 1.25, Y: 1.25, Z: 1.25}
                         Children:
@@ -271,6 +348,18 @@ Hierarchy:
                         RotationSpeed: {Radians: 0.01308997}
                         CircularMovement: {Radians: 0.008726646}
                         CircularMovementRadius: 5.0
+        -   Entity:
+                Id: c9c601e0-8863-41a9-805e-5c3811ed9a4e
+                Name: ObjectSpawner 1
+                Components:
+                    b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
+                        Id: 037cc281-2535-4c0e-9e13-40f906dfb85b
+                        Position: {X: 1.0, Y: 1.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    0391eeb8e9087164993b143449c836f6: !GarbageCollectors.ObjectSpawnPoint,GarbageCollectors.Game
+                        Id: c69609d4-bf80-4de7-a0ef-562547093ad7
         -   Folder: null
             Entity:
                 Id: d44e4921-1f0d-4130-8052-a2b3434af6eb
@@ -302,6 +391,7 @@ Hierarchy:
                             1f66d7610cd6dc4c9b32d800d312e162*~0: d09967b7-528e-4bd7-b166-b08683ab3781:Materials/Wall
                     d85b2b6e072fba4f9eac30a89cde96ea: !StaticColliderComponent
                         Id: 66635027-5262-4dc2-b825-9035d1f634e1
+                        CanCollideWith*: DefaultFilter
                         CanSleep: true
                         Restitution: 0.0
                         Friction: 0.5
@@ -346,9 +436,7 @@ Hierarchy:
                         Children: {}
                     dc28242d00ca20ab7404dfb38f289387: !GarbageCollectors.GameManager,GarbageCollectors.Game
                         Id: 3a00a0c1-3fd3-4a73-ada0-e9d914abac6d
-                        ObjectSpawners:
-                            16e14919cc89ac2c0cd7f89def973df3: ref!! dbb6d5b7-de58-4fa4-a0be-17e10fd9f33f
-                            43ae664691484cb80dff3c67ec048ee3: ref!! 4ed4b921-07b0-4f8a-af70-bd014abc5918
+                        ObjectSpawnTimoutRange: {X: 1.0, Y: 3.0}
                         Teams:
                             65b121aa3d0eb494fe249af33442caa5:
                                 Color: {R: 0.09260156, G: 0.65206933, B: 0.98775, A: 1.0}
@@ -356,6 +444,8 @@ Hierarchy:
                             3f58de843686314e701f1f8c47064357:
                                 Color: {R: 0.98775, G: 0.448533684, B: 0.1296422, A: 1.0}
                                 Spawner: ref!! 8ba72e0c-e26c-4a3f-82ab-57324b6c6a88
+                        ObjectPrefab: 17e24fd2-9236-4d6b-9389-679a12599175:Prefabs/Garbage
+                        SpawnerRoot: ref!! 3a13a639-1940-4689-9b34-7ab13424cec3
         -   Entity:
                 Id: ed720765-5adc-45b5-b35a-6a2166082a0c
                 Name: Ambient

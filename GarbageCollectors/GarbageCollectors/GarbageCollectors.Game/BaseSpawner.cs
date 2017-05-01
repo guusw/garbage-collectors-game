@@ -36,14 +36,11 @@ namespace GarbageCollectors
             if (Prefab == null)
                 return null;
 
-            Vector3 spawnPosition = Entity.Transform.Position;
-
             var newInstance = Prefab.Instantiate().First();
             SceneSystem.SceneInstance.RootScene.Entities.Add(newInstance);
 
-            newInstance.Transform.Position = spawnPosition;
-
-            var component = newInstance.Get<EntityComponent>();
+            newInstance.Transform.Position = position;
+            
             instances.Add(newInstance);
 
             return newInstance;

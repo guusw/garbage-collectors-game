@@ -27,13 +27,20 @@ namespace GarbageCollectors
         public ModelComponent Model { get; set; }
         public List<Material> Templates { get; private set; } = new List<Material>();
     }
-
-
+    
+    public enum ShipState
+    {
+        Appear,
+        Idle,
+    }
+    
     public class Ship : SyncScript
     {
         public static readonly float ZDepth = 0.0f;
         public static readonly float InputEpsilon = 0.0001f;
         public static readonly Color4 NeutralColor = Color4.White;
+
+        public GarbageState State { get; private set; } = GarbageState.Appear;
 
         [DataMemberIgnore]
         public float Rotation
@@ -62,6 +69,8 @@ namespace GarbageCollectors
         private InputState input;
         private Player owner;
 
+        private float stateTimer = 0.0f;
+
         public override void Start()
         {
             // After input
@@ -72,52 +81,33 @@ namespace GarbageCollectors
             Rigidbody.AngularFactor = new Vector3(0,0,1);
             Rigidbody.OverrideGravity = true;
             Rigidbody.Gravity = Vector3.Zero;
+            Rigidbody.CollisionGroup = CollisionFilterGroups.CustomFilter2;
         }
 
         public override void Update()
         {
-            // Apply forces
-            Vector2 newVelocity = Velocity;
 
-            float dtMult = (float)Game.UpdateTime.Elapsed.TotalSeconds;
-
-            if (Math.Abs(input.Rotation) > InputEpsilon)
+            // Spawning animation
+            switch (State)
             {
-                float addRotaton = RotationSpeed.Radians * input.Rotation;
-                Rigidbody.AngularVelocity = new Vector3(0, 0, addRotaton);
-            }
-            else
-            {
-                Rigidbody.AngularVelocity = Vector3.Zero;
-            }
-
-            if (Math.Abs(input.Acceleration) > InputEpsilon)
-            {
-                float addAcceleration = AcclerationSpeed * input.Acceleration * dtMult;
-                newVelocity += Forward * addAcceleration;
-            }
-            
-            // Maximum speed
-            float velocity = newVelocity.Length();
-            if (velocity > 0)
-            {
-                Vector2 newVelocityDir = newVelocity / velocity;
-                velocity = MathUtil.Clamp(velocity, 0.0f, MaximumSpeed);
-
-                if (input.Brake > 0.0f)
-                {
-                    float addBrake = BrakeSpeed * dtMult;
-                    velocity = Math.Max(0, velocity - addBrake);
-                }
-
-                newVelocity = newVelocityDir * velocity;
+                case GarbageState.Appear:
+                    float t = stateTimer / 0.5f;
+                    if (t >= 1.0f)
+                    {
+                        t = 1.0f;
+                        State = GarbageState.Idle;
+                        OnIdleEnter();
+                    }
+                    float curve = Bezier.Compute(t, .17f, .67f, .76f, 1.14f);
+                    curve = curve < 1.0f ? curve : 2.0f - curve;
+                    Entity.Transform.Rotation = Quaternion.RotationZ(curve);
+                    break;
+                case GarbageState.Idle:
+                    IdleUpdate();
+                    break;
             }
 
-            // Update position and velocity while completely ignoring the z axis
-            Rigidbody.LinearVelocity = new Vector3(newVelocity, 0.0f);
-
-            // Clear input after processing it
-            input = InputState.None;
+            stateTimer += (float)Game.UpdateTime.Elapsed.TotalSeconds;
         }
 
         public void SetColor(Color4 color)
@@ -148,6 +138,57 @@ namespace GarbageCollectors
             owner = player;
             Color4 targetColor = player?.Team.Color ?? NeutralColor;
             SetColor(targetColor);
+        }
+
+        private void IdleUpdate()
+        {
+            // Apply forces
+            Vector2 newVelocity = Velocity;
+
+            float dtMult = (float)Game.UpdateTime.Elapsed.TotalSeconds;
+
+            if (Math.Abs(input.Rotation) > InputEpsilon)
+            {
+                float addRotaton = RotationSpeed.Radians * input.Rotation;
+                Rigidbody.AngularVelocity = new Vector3(0, 0, addRotaton);
+            }
+            else
+            {
+                Rigidbody.AngularVelocity = Vector3.Zero;
+            }
+
+            if (Math.Abs(input.Acceleration) > InputEpsilon)
+            {
+                float addAcceleration = AcclerationSpeed * input.Acceleration * dtMult;
+                newVelocity += Forward * addAcceleration;
+            }
+
+            // Maximum speed
+            float velocity = newVelocity.Length();
+            if (velocity > 0)
+            {
+                Vector2 newVelocityDir = newVelocity / velocity;
+                velocity = MathUtil.Clamp(velocity, 0.0f, MaximumSpeed);
+
+                if (input.Brake > 0.0f)
+                {
+                    float addBrake = BrakeSpeed * dtMult;
+                    velocity = Math.Max(0, velocity - addBrake);
+                }
+
+                newVelocity = newVelocityDir * velocity;
+            }
+
+            // Update position and velocity while completely ignoring the z axis
+            Rigidbody.LinearVelocity = new Vector3(newVelocity, 0.0f);
+
+            // Clear input after processing it
+            input = InputState.None;
+        }
+
+        private void OnIdleEnter()
+        {
+            Rigidbody.Enabled = true;
         }
     }
 }

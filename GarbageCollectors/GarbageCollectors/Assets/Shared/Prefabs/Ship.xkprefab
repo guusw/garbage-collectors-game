@@ -275,8 +275,8 @@ Hierarchy:
                 Components:
                     21e01081afeefc1389fe9953c7a25e04: !TransformComponent
                         Id: 9406de63-bd21-4aa3-add5-669d07075dac
-                        Position: {X: 0.62500006, Y: 0.08333333, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Position: {X: 0.62500006, Y: 0.0, Z: -0.01}
+                        Rotation: {X: 0.0, Y: 0.0, Z: -0.21643962, W: 0.976296}
                         Scale: {X: 0.25, Y: 1.0, Z: 1.0}
                         Children: {}
                     36bf5424349c95a6601eef1873feec2f: !ModelComponent
@@ -289,8 +289,8 @@ Hierarchy:
                 Components:
                     21e01081afeefc1389fe9953c7a25e04: !TransformComponent
                         Id: 032d8b46-93b8-4586-a869-8cbcda8bacc2
-                        Position: {X: -0.62499994, Y: 0.083, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Position: {X: -0.62499994, Y: 0.0, Z: -0.01}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.21643962, W: 0.976296}
                         Scale: {X: 0.25, Y: 1.0, Z: 1.0}
                         Children: {}
                     36bf5424349c95a6601eef1873feec2f: !ModelComponent
@@ -312,6 +312,7 @@ Hierarchy:
                             a8188c2badc1fee1b0f885a6bdc0e257: ref!! 41a410fe-f1ec-4959-9e25-a4696ce6cf21
                             ab062257bc8388b99bb16a6d5e84c645: ref!! de39c465-0f92-4a8a-b77c-9a9b3dbecf3d
                             163ee3995b07ee2fe7c7bc7f773f5700: ref!! 96f08245-a4a5-4945-8a95-daa32a4c18cf
+                            f1350394f7f437d5810d866c3270060e: ref!! fcccaa4e-ef69-43e4-a5af-73bf168c8397
                     1698a6d5ad4a374bbf1b56cd4887a9f2: !RigidbodyComponent
                         Id: 732a4865-24d0-4fef-b68c-7bb16453b0bd
                         CanSleep: false
@@ -322,7 +323,7 @@ Hierarchy:
                         CcdSweptSphereRadius: 0.0
                         IsTrigger: false
                         IsKinematic: false
-                        Mass: 1.0
+                        Mass: 20.0
                         LinearDamping: 0.0
                         AngularDamping: 0.0
                         OverrideGravity: true
@@ -331,19 +332,19 @@ Hierarchy:
                         ColliderShapes:
                             0ee41f47f6d2e055edc233176d71c52c: !BoxColliderShapeDesc
                                 Is2D: false
-                                Size: {X: 1.0, Y: 0.75, Z: 1.0}
-                                LocalOffset: {X: 0.0, Y: -0.125, Z: 0.0}
+                                Size: {X: 1.0, Y: 0.5, Z: 1.0}
+                                LocalOffset: {X: 0.0, Y: -0.3, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                             d0cfa90241a794b0e3231d69fbef84b6: !BoxColliderShapeDesc
                                 Is2D: false
                                 Size: {X: 0.25, Y: 1.0, Z: 1.0}
-                                LocalOffset: {X: -0.625, Y: 0.083, Z: 0.0}
-                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                                LocalOffset: {X: -0.625, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.21643962, W: 0.976296}
                             e87bcd29109c03cbe9b6a4de80af0855: !BoxColliderShapeDesc
                                 Is2D: false
                                 Size: {X: 0.25, Y: 1.0, Z: 1.0}
-                                LocalOffset: {X: 0.625, Y: 0.083, Z: 0.0}
-                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                                LocalOffset: {X: 0.625, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: -0.21643962, W: 0.976296}
                     9dff5d1ee3fbb38be29b62d11f0097fa: !GarbageCollectors.Ship,GarbageCollectors.Game
                         Id: 471fefc7-e453-4206-8f9f-80b817d55814
                         RotationSpeed: {Radians: 3.8397243}
@@ -361,11 +362,46 @@ Hierarchy:
                 Components:
                     b5ef9217ab1cc6ee3fdf1845a17dafc0: !TransformComponent
                         Id: 41a410fe-f1ec-4959-9e25-a4696ce6cf21
-                        Position: {X: 0.0, Y: -0.125, Z: 0.0}
+                        Position: {X: 0.0, Y: -0.3, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 0.75, Z: 1.0}
+                        Scale: {X: 1.0, Y: 0.5, Z: 1.0}
                         Children: {}
                     2f7e863fc0938d11a18135c70ed141b7: !ModelComponent
                         Id: 41d859b1-4c2b-4949-ae69-246a3e592e0d
                         Model: 069ecc7d-7133-4345-883b-b67b48fca704:Models/Box
                         Materials: {}
+        -   Entity:
+                Id: 9b17a2b8-db41-4d06-8407-6a549264a978
+                Name: Grabber
+                Components:
+                    8066caff110fcecf694a9c7e429be305: !TransformComponent
+                        Id: fcccaa4e-ef69-43e4-a5af-73bf168c8397
+                        Position: {X: 0.0, Y: 0.49999994, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    b1a1740ef9525619c8730b30b3da0fbd: !RigidbodyComponent
+                        Id: 9df85eb5-7fe1-46d2-a9e6-8041ef98298b
+                        CanCollideWith: CustomFilter1
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: true
+                        IsKinematic: true
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            bec623c3a95875f297f00a6024d4689e: !SphereColliderShapeDesc
+                                Is2D: false
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                    5d04a6a9dc07ae193c18a52b244ffcc0: !GarbageCollectors.Grabber,GarbageCollectors.Game
+                        Id: 518522e5-4c05-45b5-bd26-f4286e10c585
+                        PullFalloffRadius: 0.75
+                        PullStrengthMultiplier: 10.0
