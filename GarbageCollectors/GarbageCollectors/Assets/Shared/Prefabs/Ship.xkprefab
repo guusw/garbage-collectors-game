@@ -42,7 +42,7 @@ Hierarchy:
                                             UVClockwise: Degree0
                                     Material: !ParticleMaterialComputeColor
                                         ComputeColor: !ComputeFloat4
-                                            Value: {X: 1.0, Y: 20.0, Z: 50.0, W: 1.99}
+                                            Value: {X: 1.0, Y: 20.0, Z: 50.0, W: 2.0}
                                         UVBuilder: null
                                         ForceTexCoords: false
                                     Spawners:
@@ -173,7 +173,7 @@ Hierarchy:
                                             UVClockwise: Degree0
                                     Material: !ParticleMaterialComputeColor
                                         ComputeColor: !ComputeFloat4
-                                            Value: {X: 1.0, Y: 20.0, Z: 50.0, W: 1.99}
+                                            Value: {X: 1.0, Y: 20.0, Z: 50.0, W: 2.0}
                                         UVBuilder: null
                                         ForceTexCoords: false
                                     Spawners:
@@ -350,10 +350,6 @@ Hierarchy:
                         AcclerationSpeed: 10.0
                         MaximumSpeed: 5.0
                         BrakeSpeed: 10.0
-                    e3d5e375ef587648e34b812e427b1c24: !GarbageCollectors.ShipController,GarbageCollectors.Game
-                        Id: 4f07dda9-1f5c-4c6a-a825-e11b2e1574fc
-                        Ship: ref!! 471fefc7-e453-4206-8f9f-80b817d55814
-                        PlayerIndex: 0
         -   Entity:
                 Id: 80676ab7-a244-4d9c-8133-f1e79dccd9e5
                 Name: Base

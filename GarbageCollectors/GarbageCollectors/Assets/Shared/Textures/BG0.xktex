@@ -1,0 +1,9 @@
+!Texture
+Id: 9b4e1052-91d0-4cad-b473-f5eb18525244
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../Resources/Textures/BG0.png
+IsCompressed: false
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
+GenerateMipmaps: false

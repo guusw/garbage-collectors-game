@@ -1,0 +1,18 @@
+!MaterialAsset
+Id: bedd10f8-4446-406f-a2f1-3ea24cde28f5
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Attributes:
+    Emissive: !MaterialEmissiveMapFeature
+        EmissiveMap: !ComputeTextureColor
+            Texture: 9b4e1052-91d0-4cad-b473-f5eb18525244:Textures/BG0
+            FallbackValue:
+                Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+            Swizzle: null
+        Intensity: !ComputeFloat
+            Value: 1.0
+    Overrides:
+        UVScale: {X: 1.0, Y: 1.0}
+Layers: {}

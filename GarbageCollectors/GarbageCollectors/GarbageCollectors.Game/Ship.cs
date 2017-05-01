@@ -6,17 +6,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SiliconStudio.Core;
+using SiliconStudio.Core.Annotations;
 using SiliconStudio.Core.Mathematics;
 using SiliconStudio.Xenko.Input;
 using SiliconStudio.Xenko.Engine;
 using SiliconStudio.Xenko.Physics;
+using SiliconStudio.Xenko.Rendering.Materials;
 
 namespace GarbageCollectors
 {
+    /// <summary>
+    /// Temporary workaround for editor
+    /// </summary>
+    [DataContract]
+    [InlineProperty]
+    public class ModelWrapper
+    {
+        [InlineProperty]
+        public ModelComponent Model { get; set; }
+    }
+
+
     public class Ship : SyncScript
     {
         public static readonly float ZDepth = 0.0f;
         public static readonly float InputEpsilon = 0.0001f;
+        public static readonly Color4 NeutralColor = Color4.White;
 
         [DataMemberIgnore]
         public float Rotation
@@ -35,12 +50,15 @@ namespace GarbageCollectors
         [DataMemberIgnore]
         public Vector2 Forward => Vector2.Normalize(Entity.Transform.WorldMatrix.Up.XY());
 
+        public List<ModelWrapper> ColorModels { get; private set; } = new List<ModelWrapper>();
+
         public AngleSingle RotationSpeed = new AngleSingle(200.0f, AngleType.Degree);
         public float AcclerationSpeed = 3.0f;
         public float MaximumSpeed = 1.0f;
         public float BrakeSpeed = 1.0f;
 
         private InputState input;
+        private Player owner;
 
         public override void Start()
         {
@@ -100,12 +118,27 @@ namespace GarbageCollectors
             input = InputState.None;
         }
 
+        public void SetColor(Color4 color)
+        {
+            foreach (var model in ColorModels)
+            {
+                model.Model.Materials[0].Parameters.Set(MaterialKeys.DiffuseValue, color);
+            }
+        }
+
         public void SendInput(InputState input)
         {
             this.input = input;
             input.Rotation = MathUtil.Clamp(input.Rotation, -1.0f, 1.0f);
             input.Acceleration = MathUtil.Clamp(input.Acceleration, -1.0f, 1.0f);
             input.Brake = (input.Brake < 0.5f) ? 0.0f : 1.0f;
+        }
+
+        public void SetOwner(Player player)
+        {
+            owner = player;
+            Color4 targetColor = player?.Team.Color ?? NeutralColor;
+            SetColor(targetColor);
         }
     }
 }

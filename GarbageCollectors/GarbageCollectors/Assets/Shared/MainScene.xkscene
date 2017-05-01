@@ -13,21 +13,67 @@ Hierarchy:
         - b318bd96-36be-4a99-a24f-9bee7868cf30
         - 9df2af2b-98af-461a-8089-c90dacceb1ac
         - 5e36d795-b18c-4582-9947-1dd6b26d18f5
-        - 4dc6b190-c84f-4bba-92e0-a3689f889505
         - 12bc1995-88e1-4ca4-91c1-c1114e72806b
+        - 1ad9765a-15d5-4d34-bd1b-b7683bbdca7f
+        - dec35148-52ac-4193-94a9-0d3ee36259b8
+        - 0a8afe25-e13c-4637-a7b6-7addd7b8c67e
+        - 7841fc37-43ce-435c-924c-5a2e2386b100
     Parts:
+        -   Folder: null
+            Entity:
+                Id: 02d75a1d-ee36-4c4b-9f00-eb866762df25
+                Name: GridBase10x10
+                Components:
+                    743ffe03dc7419ffeeaae13216cae2db: !TransformComponent
+                        Id: 646ba065-b01b-47f6-a014-650a9d115307
+                        Position: {X: 25.0, Y: 25.0, Z: 0.0}
+                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
+                        Scale: {X: 5.0, Y: 5.0, Z: 5.0}
+                        Children: {}
+                    f3c60fc9a3938653537e207072f9123d: !ModelComponent
+                        Id: 152851fe-96a4-4879-906a-9b344b2d5d00
+                        Model: 1da96b5f-532f-4e76-9c24-14cc7c0e74fc:Models/GridBase10x10
+                        Materials:
+                            f00c24d1e8d9cb202093643605960636~0: bedd10f8-4446-406f-a2f1-3ea24cde28f5:Materials/Background0
+        -   Entity:
+                Id: 0a8afe25-e13c-4637-a7b6-7addd7b8c67e
+                Name: PlayerSpawner (Left)
+                Components:
+                    3ade49ef2182db82f0eba6e1deb71719: !TransformComponent
+                        Id: 075fd8ac-2251-48da-839f-b72c9fe88e4c
+                        Position: {X: -3.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    97befd698a07970d75819b9d34d7085f: !GarbageCollectors.PlayerSpawner,GarbageCollectors.Game
+                        Id: 76565d0d-5a14-45c7-a76e-520f4d51430b
+                        Prefab: e9dd6196-6ca9-4c35-a2e5-ada88736d3a0:Prefabs/Ship
         -   Entity:
                 Id: 12bc1995-88e1-4ca4-91c1-c1114e72806b
-                Name: Spawner
+                Name: ObjectSpawner (Top)
                 Components:
                     b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
                         Id: b843e169-0a4b-47e4-8ad4-30779267e124
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Position: {X: 2.98023224E-08, Y: 1.5, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     f9bc0c3376eeb04b10e507d58a88e47c: !GarbageCollectors.SpawnScript,GarbageCollectors.Game
                         Id: dbb6d5b7-de58-4fa4-a0be-17e10fd9f33f
+                        Prefab: 17e24fd2-9236-4d6b-9389-679a12599175:Prefabs/Garbage
+        -   Folder: null
+            Entity:
+                Id: 1ad9765a-15d5-4d34-bd1b-b7683bbdca7f
+                Name: ObjectSpawner
+                Components:
+                    b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
+                        Id: f2f97f8c-7e51-4f6e-ac68-cfc29155a210
+                        Position: {X: 2.98023224E-08, Y: -1.5, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    f9bc0c3376eeb04b10e507d58a88e47c: !GarbageCollectors.SpawnScript,GarbageCollectors.Game
+                        Id: 4ed4b921-07b0-4f8a-af70-bd014abc5918
                         Prefab: 17e24fd2-9236-4d6b-9389-679a12599175:Prefabs/Garbage
         -   Entity:
                 Id: 25b37d5e-9e44-4ed0-8ace-845c3742c8da
@@ -45,192 +91,6 @@ Hierarchy:
                         Projection: Perspective
                         VerticalFieldOfView: 25.0
                         Slot: d9c63fc6-e98c-49e9-91c0-3a8c500a02c0
-                    2c045039243f9ee56ce2c47de71b8614: !GarbageCollectors.BasicCameraController,GarbageCollectors.Game
-                        Id: 5e4ac607-71b6-49ca-a976-7a949751f989
-                        KeyboardMovementSpeed: {X: 5.0, Y: 5.0, Z: 5.0}
-                        TouchMovementSpeed: {X: 40.0, Y: 40.0, Z: 20.0}
-                        SpeedFactor: 5.0
-                        KeyboardRotationSpeed: {X: 3.0, Y: 3.0}
-                        MouseRotationSpeed: {X: 90.0, Y: 60.0}
-                        TouchRotationSpeed: {X: 60.0, Y: 40.0}
-        -   Entity:
-                Id: 3752a8c3-2c5d-40fd-9646-671e9751bdd4
-                Name: Ribbon Particle System
-                Components:
-                    e45f2be3f315b09fefe1dab663466fcb: !TransformComponent
-                        Id: f8f7dd03-4c1f-4f45-9dad-f6d11fd51fc9
-                        Position: {X: -0.3333333, Y: -0.5, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 1.0, W: -4.371139E-08}
-                        Scale: {X: 2.0, Y: 2.0, Z: 2.0}
-                        Children: {}
-                    f4b1f7e4a46e8fbbfa6f91ba0cb283b2: !ParticleSystemComponent
-                        Id: 8e680de4-53c6-4ccf-9991-71ff4be66196
-                        Control:
-                            ResetSeconds: 5.0
-                            Control: Play
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Speed: 1.0
-                        ParticleSystem:
-                            Settings: {}
-                            BoundingShape: null
-                            Emitters:
-                                1099917654fe40810941ee8a952c3995:
-                                    ParticleLifetime: {X: 1.0, Y: 1.0}
-                                    SortingPolicy: ByOrder
-                                    ShapeBuilder: !ShapeBuilderRibbon
-                                        SmoothingPolicy: Best
-                                        Segments: 15
-                                        TextureCoordinatePolicy: Stretched
-                                        TexCoordsFactor: 1.0
-                                        UVRotate:
-                                            FlipX: false
-                                            FlipY: false
-                                            UVClockwise: Degree0
-                                    Material: !ParticleMaterialComputeColor
-                                        ComputeColor: !ComputeFloat4
-                                            Value: {X: 1.0, Y: 20.0, Z: 50.0, W: 1.99}
-                                        UVBuilder: null
-                                        ForceTexCoords: false
-                                    Spawners:
-                                        467e7045ab54babaaeeb7bd36f748570: !SpawnerPerSecond
-                                            LoopCondition: Looping
-                                            Delay: {X: 0.0, Y: 0.0}
-                                            Duration: {X: 1.0, Y: 1.0}
-                                            SpawnCount: 30.0
-                                    Initializers:
-                                        aa0f0c668bb24075b0f60a377adee696: !InitialVelocitySeed
-                                            InheritPosition: true
-                                            Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                                            InheritRotation: true
-                                            Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                                            InheritScale: true
-                                            Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                                            ScaleUniform: 1.0
-                                            SeedOffset: 0
-                                            DisplayParticlePosition: false
-                                            DisplayParticleRotation: true
-                                            DisplayParticleScale: false
-                                            DisplayParticleScaleUniform: true
-                                            VelocityMin: {X: 0.0, Y: 0.0, Z: 0.0}
-                                            VelocityMax: {X: 0.0, Y: 1.0, Z: 0.0}
-                                        dbce912352b0f9695d1cef347fd04a99: !InitialSpawnOrder
-                                            InheritPosition: true
-                                            Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                                            InheritRotation: true
-                                            Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                                            InheritScale: true
-                                            Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                                            ScaleUniform: 1.0
-                                            DisplayParticlePosition: false
-                                            DisplayParticleRotation: false
-                                            DisplayParticleScale: false
-                                            DisplayParticleScaleUniform: false
-                                    Updaters:
-                                        d1bba2d569ac90554d2fcb594b113312: !UpdaterSizeOverTime
-                                            InheritPosition: true
-                                            Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                                            InheritRotation: true
-                                            Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                                            InheritScale: true
-                                            Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                                            ScaleUniform: 1.0
-                                            DisplayParticlePosition: false
-                                            DisplayParticleRotation: false
-                                            DisplayParticleScale: false
-                                            DisplayParticleScaleUniform: false
-                                            SamplerMain: !ComputeCurveSamplerFloat
-                                                Curve: !ComputeAnimationCurveFloat
-                                                    KeyFrames:
-                                                        e398946af3789d4b34baa74a8f0926ef:
-                                                            Key: 0.0
-                                                            Value: 0.1
-                                                            TangentType: Linear
-                                                        f8c1f5ee65e1c6f057ceafd51ab8d560:
-                                                            Key: 0.9
-                                                            Value: 0.0
-                                                            TangentType: Linear
-                                            SamplerOptional: null
-                                            SeedOffset: 0
-                                        a39256c6bee86d553861693c14033433: !UpdaterColorOverTime
-                                            InheritPosition: true
-                                            Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                                            InheritRotation: true
-                                            Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                                            InheritScale: true
-                                            Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                                            ScaleUniform: 1.0
-                                            DisplayParticlePosition: false
-                                            DisplayParticleRotation: false
-                                            DisplayParticleScale: false
-                                            DisplayParticleScaleUniform: false
-                                            SamplerMain: !ComputeCurveSamplerColor4
-                                                Curve: !ComputeAnimationCurveColor4
-                                                    KeyFrames:
-                                                        299d13d9c2c066949d4d7e87963f4512:
-                                                            Key: 0.0
-                                                            Value: {R: 0.0, G: 0.0, B: 0.0, A: 1.0}
-                                                            TangentType: Linear
-                                                        54a4c4247931a8c3146c718acc71e910:
-                                                            Key: 0.306608
-                                                            Value: {R: 0.0, G: 0.0, B: 0.0, A: 0.3392683}
-                                                            TangentType: Linear
-                                                        a77e9ba72a2ec048a5eb5c655991beba:
-                                                            Key: 1.0
-                                                            Value: {R: 0.0, G: 0.0, B: 0.0, A: 0.0}
-                                                            TangentType: Linear
-                                            SamplerOptional: null
-                                            SeedOffset: 0
-            Base:
-                BasePartAsset: e9dd6196-6ca9-4c35-a2e5-ada88736d3a0:Prefabs/Prefab
-                BasePartId: 1d2e61ab-8846-47a0-9e07-f5f44e32dd2a
-                InstanceId: e3d38c51-9c27-47cd-9ce9-71bb9db446e6
-        -   Entity:
-                Id: 416b3e81-cb87-4b97-b667-f4a5c8b83ec2
-                Name: GripLeft
-                Components:
-                    21e01081afeefc1389fe9953c7a25e04: !TransformComponent
-                        Id: 10b2e3fb-9d99-4b93-b444-d505c385aaab
-                        Position: {X: -0.62499994, Y: 0.083, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 0.25, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    36bf5424349c95a6601eef1873feec2f: !ModelComponent
-                        Id: 0e8c7d27-4285-408d-a0f2-5c397bb1b190
-                        Model: 069ecc7d-7133-4345-883b-b67b48fca704:Models/Box
-                        Materials: {}
-            Base:
-                BasePartAsset: e9dd6196-6ca9-4c35-a2e5-ada88736d3a0:Prefabs/Ship
-                BasePartId: 3bf057c2-2987-430f-9c9e-773b631497db
-                InstanceId: e3d38c51-9c27-47cd-9ce9-71bb9db446e6
-        -   Entity:
-                Id: 43fcca1e-704d-43b1-b519-ab6418599e77
-                Name: GripRight
-                Components:
-                    21e01081afeefc1389fe9953c7a25e04: !TransformComponent
-                        Id: f92fbf48-aa8b-4512-933f-dafe19af3d37
-                        Position: {X: 0.62500006, Y: 0.08333333, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 0.25, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    36bf5424349c95a6601eef1873feec2f: !ModelComponent
-                        Id: 8d4446f2-44c9-4172-97fc-5b97b94f5678
-                        Model: 069ecc7d-7133-4345-883b-b67b48fca704:Models/Box
-                        Materials: {}
-            Base:
-                BasePartAsset: e9dd6196-6ca9-4c35-a2e5-ada88736d3a0:Prefabs/Ship
-                BasePartId: 1fb41649-e463-43f2-b31d-e3ab55cf4b14
-                InstanceId: e3d38c51-9c27-47cd-9ce9-71bb9db446e6
-        -   Entity:
-                Id: 4dc6b190-c84f-4bba-92e0-a3689f889505
-                Name: Ship
-                Components:
-                    ad2ae8d5c1310538b93236ea0bdef7a4: !TransformComponent
-                        Id: ddd2258d-e615-4406-93e4-6cb5a70ced13
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            cba55c50a853dd1aec35c467495ee5e1: ref!! e4beb438-5d2f-4391-9d87-76bd623d1f7b
         -   Folder: null
             Entity:
                 Id: 5e36d795-b18c-4582-9947-1dd6b26d18f5
@@ -282,7 +142,6 @@ Hierarchy:
                             Color: !ColorRgbProvider
                                 Value: {R: 1.0, G: 1.0, B: 1.0}
                             Shadow:
-                                Enabled: true
                                 Filter: !LightShadowMapFilterTypePcf
                                     FilterSize: Filter5x5
                                 Size: Large
@@ -290,199 +149,36 @@ Hierarchy:
                                 PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
                                 BiasParameters: {}
                         Intensity: 2.0
+        -   Entity:
+                Id: 7841fc37-43ce-435c-924c-5a2e2386b100
+                Name: BackgroundLayer0
+                Components:
+                    694c9f5ed858951b6e12b3a957c74a10: !TransformComponent
+                        Id: c0833b11-a1b1-46db-a887-ba4c4e074f97
+                        Position: {X: 0.0, Y: -14.999999, Z: -40.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: -0.447253555, W: 0.8944072}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            2d14a4d8981b06b9f8b265d1574f9d81: ref!! 8f49646d-17ca-4570-acfa-d4f92554aa81
+                            a8222e7b1dc6180a136c88b9a8566b9b: ref!! 88a71eee-a0e3-4f09-b268-b666a80e0eb5
+                            8599b3e8410601ebcd6a484f38d0c89c: ref!! 646ba065-b01b-47f6-a014-650a9d115307
+                            f39d507d6d547e79fc57968e08056083: ref!! 9f149941-007c-4327-9477-a5bf6e3f56d1
         -   Folder: null
             Entity:
-                Id: 6e09639c-fc3a-4314-8595-2ede6c8fda43
-                Name: Ribbon Particle System
+                Id: 83afd6bc-558d-41e9-aad1-ddd2e88cc0ba
+                Name: GridBase10x10
                 Components:
-                    e45f2be3f315b09fefe1dab663466fcb: !TransformComponent
-                        Id: b7176ca7-2de5-4135-9744-013cb655db22
-                        Position: {X: 0.3333333, Y: -0.5, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 1.0, W: -4.371139E-08}
-                        Scale: {X: 2.0, Y: 2.0, Z: 2.0}
+                    743ffe03dc7419ffeeaae13216cae2db: !TransformComponent
+                        Id: 9f149941-007c-4327-9477-a5bf6e3f56d1
+                        Position: {X: 25.0, Y: -25.0, Z: 0.0}
+                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
+                        Scale: {X: 5.0, Y: 5.0, Z: 5.0}
                         Children: {}
-                    f4b1f7e4a46e8fbbfa6f91ba0cb283b2: !ParticleSystemComponent
-                        Id: aa7d69be-16ac-49c4-9238-ddce3c5ee874
-                        Control:
-                            ResetSeconds: 5.0
-                            Control: Play
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Speed: 1.0
-                        ParticleSystem:
-                            Settings: {}
-                            BoundingShape: null
-                            Emitters:
-                                1099917654fe40810941ee8a952c3995:
-                                    ParticleLifetime: {X: 1.0, Y: 1.0}
-                                    SortingPolicy: ByOrder
-                                    ShapeBuilder: !ShapeBuilderRibbon
-                                        SmoothingPolicy: Best
-                                        Segments: 15
-                                        TextureCoordinatePolicy: Stretched
-                                        TexCoordsFactor: 1.0
-                                        UVRotate:
-                                            FlipX: false
-                                            FlipY: false
-                                            UVClockwise: Degree0
-                                    Material: !ParticleMaterialComputeColor
-                                        ComputeColor: !ComputeFloat4
-                                            Value: {X: 1.0, Y: 20.0, Z: 50.0, W: 1.99}
-                                        UVBuilder: null
-                                        ForceTexCoords: false
-                                    Spawners:
-                                        467e7045ab54babaaeeb7bd36f748570: !SpawnerPerSecond
-                                            LoopCondition: Looping
-                                            Delay: {X: 0.0, Y: 0.0}
-                                            Duration: {X: 1.0, Y: 1.0}
-                                            SpawnCount: 30.0
-                                    Initializers:
-                                        aa0f0c668bb24075b0f60a377adee696: !InitialVelocitySeed
-                                            InheritPosition: true
-                                            Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                                            InheritRotation: true
-                                            Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                                            InheritScale: true
-                                            Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                                            ScaleUniform: 1.0
-                                            SeedOffset: 0
-                                            DisplayParticlePosition: false
-                                            DisplayParticleRotation: true
-                                            DisplayParticleScale: false
-                                            DisplayParticleScaleUniform: true
-                                            VelocityMin: {X: 0.0, Y: 0.0, Z: 0.0}
-                                            VelocityMax: {X: 0.0, Y: 1.0, Z: 0.0}
-                                        dbce912352b0f9695d1cef347fd04a99: !InitialSpawnOrder
-                                            InheritPosition: true
-                                            Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                                            InheritRotation: true
-                                            Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                                            InheritScale: true
-                                            Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                                            ScaleUniform: 1.0
-                                            DisplayParticlePosition: false
-                                            DisplayParticleRotation: false
-                                            DisplayParticleScale: false
-                                            DisplayParticleScaleUniform: false
-                                    Updaters:
-                                        d1bba2d569ac90554d2fcb594b113312: !UpdaterSizeOverTime
-                                            InheritPosition: true
-                                            Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                                            InheritRotation: true
-                                            Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                                            InheritScale: true
-                                            Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                                            ScaleUniform: 1.0
-                                            DisplayParticlePosition: false
-                                            DisplayParticleRotation: false
-                                            DisplayParticleScale: false
-                                            DisplayParticleScaleUniform: false
-                                            SamplerMain: !ComputeCurveSamplerFloat
-                                                Curve: !ComputeAnimationCurveFloat
-                                                    KeyFrames:
-                                                        e398946af3789d4b34baa74a8f0926ef:
-                                                            Key: 0.0
-                                                            Value: 0.1
-                                                            TangentType: Linear
-                                                        f8c1f5ee65e1c6f057ceafd51ab8d560:
-                                                            Key: 0.9
-                                                            Value: 0.0
-                                                            TangentType: Linear
-                                            SamplerOptional: null
-                                            SeedOffset: 0
-                                        a39256c6bee86d553861693c14033433: !UpdaterColorOverTime
-                                            InheritPosition: true
-                                            Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                                            InheritRotation: true
-                                            Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                                            InheritScale: true
-                                            Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                                            ScaleUniform: 1.0
-                                            DisplayParticlePosition: false
-                                            DisplayParticleRotation: false
-                                            DisplayParticleScale: false
-                                            DisplayParticleScaleUniform: false
-                                            SamplerMain: !ComputeCurveSamplerColor4
-                                                Curve: !ComputeAnimationCurveColor4
-                                                    KeyFrames:
-                                                        299d13d9c2c066949d4d7e87963f4512:
-                                                            Key: 0.0
-                                                            Value: {R: 0.0, G: 0.0, B: 0.0, A: 1.0}
-                                                            TangentType: Linear
-                                                        54a4c4247931a8c3146c718acc71e910:
-                                                            Key: 0.306608
-                                                            Value: {R: 0.0, G: 0.0, B: 0.0, A: 0.3392683}
-                                                            TangentType: Linear
-                                                        a77e9ba72a2ec048a5eb5c655991beba:
-                                                            Key: 1.0
-                                                            Value: {R: 0.0, G: 0.0, B: 0.0, A: 0.0}
-                                                            TangentType: Linear
-                                            SamplerOptional: null
-                                            SeedOffset: 0
-            Base:
-                BasePartAsset: e9dd6196-6ca9-4c35-a2e5-ada88736d3a0:Prefabs/Prefab
-                BasePartId: 0ab06580-7ebd-4362-805c-b6f2d9daff5f
-                InstanceId: e3d38c51-9c27-47cd-9ce9-71bb9db446e6
-        -   Entity:
-                Id: 9c405e49-f45c-4bbb-ab24-8b6d27ad6e81
-                Name: Ship
-                Components:
-                    d22b641d1ba2c006eba87857e38a4329: !TransformComponent
-                        Id: e4beb438-5d2f-4391-9d87-76bd623d1f7b
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 0.75, Y: 0.75, Z: 0.75}
-                        Children:
-                            fc093103724878c88c970af63c597eb2: ref!! 10b2e3fb-9d99-4b93-b444-d505c385aaab
-                            8eb9d2a31677bafa8043daaecca2be50: ref!! f92fbf48-aa8b-4512-933f-dafe19af3d37
-                            a8188c2badc1fee1b0f885a6bdc0e257: ref!! 5d00be4e-d96f-497d-9f4c-26c9ded95a6f
-                            a297b18bfeb327f71e35997312183e27: ref!! f8f7dd03-4c1f-4f45-9dad-f6d11fd51fc9
-                            63e0cb52280b7f9ef6a21dfbade7b263: ref!! b7176ca7-2de5-4135-9744-013cb655db22
-                    1698a6d5ad4a374bbf1b56cd4887a9f2: !RigidbodyComponent
-                        Id: 04c64be4-140f-44db-a743-98810cca9de2
-                        CanSleep: false
-                        Restitution: 0.0
-                        Friction: 0.5
-                        RollingFriction: 0.0
-                        CcdMotionThreshold: 0.0
-                        CcdSweptSphereRadius: 0.0
-                        IsTrigger: false
-                        IsKinematic: false
-                        Mass: 1.0
-                        LinearDamping: 0.0
-                        AngularDamping: 0.0
-                        OverrideGravity: true
-                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
-                        NodeName: null
-                        ColliderShapes:
-                            0ee41f47f6d2e055edc233176d71c52c: !BoxColliderShapeDesc
-                                Is2D: false
-                                Size: {X: 1.0, Y: 0.75, Z: 1.0}
-                                LocalOffset: {X: 0.0, Y: -0.125, Z: 0.0}
-                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                            d0cfa90241a794b0e3231d69fbef84b6: !BoxColliderShapeDesc
-                                Is2D: false
-                                Size: {X: 0.25, Y: 1.0, Z: 1.0}
-                                LocalOffset: {X: -0.625, Y: 0.083, Z: 0.0}
-                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                            e87bcd29109c03cbe9b6a4de80af0855: !BoxColliderShapeDesc
-                                Is2D: false
-                                Size: {X: 0.25, Y: 1.0, Z: 1.0}
-                                LocalOffset: {X: 0.625, Y: 0.083, Z: 0.0}
-                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                    9dff5d1ee3fbb38be29b62d11f0097fa: !GarbageCollectors.Ship,GarbageCollectors.Game
-                        Id: 2fba61d5-f6c1-46e4-a3f1-ffa737b0626b
-                        RotationSpeed: {Radians: 3.8397243}
-                        AcclerationSpeed: 10.0
-                        MaximumSpeed: 5.0
-                        BrakeSpeed: 10.0
-                    e3d5e375ef587648e34b812e427b1c24: !GarbageCollectors.ShipController,GarbageCollectors.Game
-                        Id: 7ba65ba5-4e1e-4f03-aaab-0dbada979f3f
-                        Ship: ref!! 2fba61d5-f6c1-46e4-a3f1-ffa737b0626b
-                        PlayerIndex: 0
-            Base:
-                BasePartAsset: e9dd6196-6ca9-4c35-a2e5-ada88736d3a0:Prefabs/Ship
-                BasePartId: 56e2f091-5915-458e-858c-86cd3a8ebd94
-                InstanceId: e3d38c51-9c27-47cd-9ce9-71bb9db446e6
+                    f3c60fc9a3938653537e207072f9123d: !ModelComponent
+                        Id: de3b1fa8-1ea9-4107-9cc0-32d09b9f137d
+                        Model: 1da96b5f-532f-4e76-9c24-14cc7c0e74fc:Models/GridBase10x10
+                        Materials:
+                            f00c24d1e8d9cb202093643605960636~0: bedd10f8-4446-406f-a2f1-3ea24cde28f5:Materials/Background0
         -   Folder: null
             Entity:
                 Id: 9df2af2b-98af-461a-8089-c90dacceb1ac
@@ -553,24 +249,22 @@ Hierarchy:
                 BasePartAsset: aaefcf1a-b6d2-4bdb-b0ba-20bfa8e393e2:BlocksPrefabs/Box3x1x1
                 BasePartId: b86036f4-0ce3-4794-9947-a61378390d41
                 InstanceId: c6ca1774-b187-4f9a-8ef2-93841fc48229
-        -   Entity:
-                Id: c7b5bc36-7c74-4c95-9df6-d9fa29b93384
-                Name: Base
+        -   Folder: null
+            Entity:
+                Id: c0159c6a-7e6b-45ca-a75f-54a6745da692
+                Name: GridBase10x10
                 Components:
-                    b5ef9217ab1cc6ee3fdf1845a17dafc0: !TransformComponent
-                        Id: 5d00be4e-d96f-497d-9f4c-26c9ded95a6f
-                        Position: {X: 0.0, Y: -0.125, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 0.75, Z: 1.0}
+                    743ffe03dc7419ffeeaae13216cae2db: !TransformComponent
+                        Id: 88a71eee-a0e3-4f09-b268-b666a80e0eb5
+                        Position: {X: -25.0, Y: -25.0, Z: 0.0}
+                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
+                        Scale: {X: 5.0, Y: 5.0, Z: 5.0}
                         Children: {}
-                    2f7e863fc0938d11a18135c70ed141b7: !ModelComponent
-                        Id: 4fd86bbf-1e21-48fb-b970-ffd279e7b43f
-                        Model: 069ecc7d-7133-4345-883b-b67b48fca704:Models/Box
-                        Materials: {}
-            Base:
-                BasePartAsset: e9dd6196-6ca9-4c35-a2e5-ada88736d3a0:Prefabs/Ship
-                BasePartId: 80676ab7-a244-4d9c-8133-f1e79dccd9e5
-                InstanceId: e3d38c51-9c27-47cd-9ce9-71bb9db446e6
+                    f3c60fc9a3938653537e207072f9123d: !ModelComponent
+                        Id: a3501a14-16fb-4dfa-8ecf-5098aa5e90e4
+                        Model: 1da96b5f-532f-4e76-9c24-14cc7c0e74fc:Models/GridBase10x10
+                        Materials:
+                            f00c24d1e8d9cb202093643605960636~0: bedd10f8-4446-406f-a2f1-3ea24cde28f5:Materials/Background0
         -   Entity:
                 Id: d4b009e0-1fe7-49c0-93ae-356d28cd45dd
                 Name: Box3x1x1
@@ -606,6 +300,25 @@ Hierarchy:
                 BasePartId: b86036f4-0ce3-4794-9947-a61378390d41
                 InstanceId: e2faac43-bc96-4fef-bcdf-ad72fd17d63e
         -   Entity:
+                Id: dec35148-52ac-4193-94a9-0d3ee36259b8
+                Name: Manager
+                Components:
+                    3015b35cc166286340c1a6daa01cf6fd: !TransformComponent
+                        Id: 8a9f0bf2-88c7-4366-9a48-d6c1d8cc46b0
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    dc28242d00ca20ab7404dfb38f289387: !GarbageCollectors.GameManager,GarbageCollectors.Game
+                        Id: 3a00a0c1-3fd3-4a73-ada0-e9d914abac6d
+                        ObjectSpawners:
+                            16e14919cc89ac2c0cd7f89def973df3: ref!! dbb6d5b7-de58-4fa4-a0be-17e10fd9f33f
+                            43ae664691484cb80dff3c67ec048ee3: ref!! 4ed4b921-07b0-4f8a-af70-bd014abc5918
+                        Teams:
+                            65b121aa3d0eb494fe249af33442caa5:
+                                Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                                Spawner: ref!! 76565d0d-5a14-45c7-a76e-520f4d51430b
+        -   Entity:
                 Id: ed720765-5adc-45b5-b35a-6a2166082a0c
                 Name: Skybox
                 Components:
@@ -622,3 +335,18 @@ Hierarchy:
                         Id: 94b3052b-8f5b-4242-b7d2-998589abfeaf
                         Type: !LightSkybox
                             Skybox: 0d6e1ac3-3fb6-4437-b081-9d0788fbc260:Skybox
+        -   Entity:
+                Id: fc2fca74-4dc6-4d2f-a02e-f018204d2069
+                Name: GridBase10x10
+                Components:
+                    743ffe03dc7419ffeeaae13216cae2db: !TransformComponent
+                        Id: 8f49646d-17ca-4570-acfa-d4f92554aa81
+                        Position: {X: -25.0, Y: 25.0, Z: 0.0}
+                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
+                        Scale: {X: 5.0, Y: 5.0, Z: 5.0}
+                        Children: {}
+                    f3c60fc9a3938653537e207072f9123d: !ModelComponent
+                        Id: c21a8c70-a841-4905-8e0e-81c08032f3bf
+                        Model: 1da96b5f-532f-4e76-9c24-14cc7c0e74fc:Models/GridBase10x10
+                        Materials:
+                            f00c24d1e8d9cb202093643605960636~0: bedd10f8-4446-406f-a2f1-3ea24cde28f5:Materials/Background0

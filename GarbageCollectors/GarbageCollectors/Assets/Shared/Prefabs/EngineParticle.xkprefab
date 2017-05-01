@@ -41,7 +41,7 @@ Hierarchy:
                                             UVClockwise: Degree0
                                     Material: !ParticleMaterialComputeColor
                                         ComputeColor: !ComputeFloat4
-                                            Value: {X: 1.0, Y: 20.0, Z: 50.0, W: 1.99}
+                                            Value: {X: 1.0, Y: 20.0, Z: 50.0, W: 2.0}
                                         UVBuilder: null
                                         ForceTexCoords: false
                                     Spawners:

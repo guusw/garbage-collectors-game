@@ -14,7 +14,7 @@ namespace GarbageCollectors
     public class ShipController : SyncScript
     {
         public Ship Ship { get; set; }
-        public int PlayerIndex { get; set; } = 0;
+        public Player Player { get; set; }
 
         public override void Start()
         {
@@ -24,8 +24,11 @@ namespace GarbageCollectors
 
         public override void Update()
         {
+            if (Player == null)
+                return;
+
             InputState input = InputState.None;
-            ReadInputState(PlayerIndex, ref input);
+            ReadInputState(Player.Index, ref input);
         }
 
         void ReadInputState(int playerIndex, ref InputState state)
