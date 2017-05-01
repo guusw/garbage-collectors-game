@@ -35,9 +35,11 @@ Can be done alone of expanded upon if there are more people
     * [X] Controller support
     * [ ] Variable player
     * [ ] Teams
-* [ ] Create objects
+* [X] Create objects
 * [ ] Create collection areas
 * [ ] Create game timer and scoring
 * [ ] Text on objects (ui layer using projected world space positions)
 * [ ] (optional) last-touched object state
 * [ ] Random name using the names of xenko classes for each object
+* [ ] Additional fancyness
+    * [ ] Paralax space backgrounds

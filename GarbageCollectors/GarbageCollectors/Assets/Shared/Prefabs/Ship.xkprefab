@@ -81,8 +81,8 @@ Hierarchy:
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                     9dff5d1ee3fbb38be29b62d11f0097fa: !GarbageCollectors.Ship,GarbageCollectors.Game
                         Id: 471fefc7-e453-4206-8f9f-80b817d55814
-                        RotationSpeed: {Radians: 3.49065852}
-                        AcclerationSpeed: 5.0
+                        RotationSpeed: {Radians: 3.8397243}
+                        AcclerationSpeed: 10.0
                     e3d5e375ef587648e34b812e427b1c24: !GarbageCollectors.ShipController,GarbageCollectors.Game
                         Id: 4f07dda9-1f5c-4c6a-a825-e11b2e1574fc
                         Ship: ref!! 471fefc7-e453-4206-8f9f-80b817d55814

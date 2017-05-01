@@ -37,6 +37,7 @@ namespace GarbageCollectors
 
         public AngleSingle RotationSpeed = new AngleSingle(200.0f, AngleType.Degree);
         public float AcclerationSpeed = 3.0f;
+        public float MaximumSpeed = 1.0f;
 
         private InputState input;
 
@@ -48,12 +49,14 @@ namespace GarbageCollectors
             Rigidbody = Entity.Get<RigidbodyComponent>();
             Rigidbody.LinearFactor = new Vector3(1,1,0);
             Rigidbody.AngularFactor = new Vector3(0,0,1);
+            Rigidbody.OverrideGravity = true;
+            Rigidbody.Gravity = Vector3.Zero;
         }
 
         public override void Update()
         {
             // Apply forces
-            Vector2 currentVelocity = Velocity;
+            Vector2 newVelocity = Velocity;
 
             float speedMult = (float)Game.UpdateTime.Elapsed.TotalSeconds;
 
@@ -70,11 +73,20 @@ namespace GarbageCollectors
             if (Math.Abs(input.Acceleration) > InputEpsilon)
             {
                 float addAcceleration = AcclerationSpeed * input.Acceleration * speedMult;
-                currentVelocity += Forward * addAcceleration;
+                newVelocity += Forward * addAcceleration;
+            }
+
+            // Maximum speed
+            float velocity = newVelocity.Length();
+            if (velocity > 0)
+            {
+                Vector2 newVelocityDir = newVelocity / velocity;
+                velocity = MathUtil.Clamp(velocity, 0.0f, MaximumSpeed);
+                newVelocity = newVelocityDir * velocity;
             }
 
             // Update position and velocity while completely ignoring the z axis
-            Rigidbody.LinearVelocity = new Vector3(currentVelocity, 0.0f);
+            Rigidbody.LinearVelocity = new Vector3(newVelocity, 0.0f);
 
             // Clear input after processing it
             input = InputState.None;

@@ -14,7 +14,21 @@ Hierarchy:
         - 9df2af2b-98af-461a-8089-c90dacceb1ac
         - 5e36d795-b18c-4582-9947-1dd6b26d18f5
         - 4dc6b190-c84f-4bba-92e0-a3689f889505
+        - 12bc1995-88e1-4ca4-91c1-c1114e72806b
     Parts:
+        -   Entity:
+                Id: 12bc1995-88e1-4ca4-91c1-c1114e72806b
+                Name: Spawner
+                Components:
+                    b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
+                        Id: b843e169-0a4b-47e4-8ad4-30779267e124
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    f9bc0c3376eeb04b10e507d58a88e47c: !GarbageCollectors.SpawnScript,GarbageCollectors.Game
+                        Id: dbb6d5b7-de58-4fa4-a0be-17e10fd9f33f
+                        Prefab: 17e24fd2-9236-4d6b-9389-679a12599175:Prefabs/Garbage
         -   Entity:
                 Id: 25b37d5e-9e44-4ed0-8ace-845c3742c8da
                 Name: Camera
@@ -192,8 +206,8 @@ Hierarchy:
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                     9dff5d1ee3fbb38be29b62d11f0097fa: !GarbageCollectors.Ship,GarbageCollectors.Game
                         Id: 2fba61d5-f6c1-46e4-a3f1-ffa737b0626b
-                        RotationSpeed: {Radians: 3.49065852}
-                        AcclerationSpeed: 5.0
+                        RotationSpeed: {Radians: 3.8397243}
+                        AcclerationSpeed: 10.0
                     e3d5e375ef587648e34b812e427b1c24: !GarbageCollectors.ShipController,GarbageCollectors.Game
                         Id: 7ba65ba5-4e1e-4f03-aaab-0dbada979f3f
                         Ship: ref!! 2fba61d5-f6c1-46e4-a3f1-ffa737b0626b

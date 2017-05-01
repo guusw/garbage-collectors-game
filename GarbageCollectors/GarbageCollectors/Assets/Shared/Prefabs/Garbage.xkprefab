@@ -1,0 +1,60 @@
+!PrefabAsset
+Id: 17e24fd2-9236-4d6b-9389-679a12599175
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Hierarchy:
+    RootPartIds:
+        - 95cd7a7b-7698-4308-b42a-c995a22b4b18
+    Parts:
+        -   Entity:
+                Id: 5ba7d4cf-c3f4-409e-99c5-9b99a52f61f4
+                Name: Model
+                Components:
+                    7b3d70d7e585a08a29ff5e0ac1fedab5: !TransformComponent
+                        Id: 74cd5ffc-8044-46f4-aecf-e7607acf66a1
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.5, Y: -0.49999994, Z: -0.5, W: 0.49999994}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    abde50751058be6ec8641e239e230f67: !ModelComponent
+                        Id: a204767c-a14a-4f0f-a257-52eda84657e3
+                        Enabled: false
+                        Model: 4f087962-8ee8-4644-a5aa-a3d800f25e48:Models/Garbage
+                        Materials: {}
+        -   Entity:
+                Id: 95cd7a7b-7698-4308-b42a-c995a22b4b18
+                Name: Garbage
+                Components:
+                    7e3a1a3dc05fdb30c29f6a320e49ae21: !TransformComponent
+                        Id: e58228c2-6852-4e37-967e-37adca070748
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 0.75, Y: 0.75, Z: 0.75}
+                        Children:
+                            e55c3e669bc2a6d53808433b4382a656: ref!! 74cd5ffc-8044-46f4-aecf-e7607acf66a1
+                    75c2399f02571e0ef22935b5cee77378: !GarbageCollectors.Garbage,GarbageCollectors.Game
+                        Id: d2b0a42f-6a5f-46b7-aa58-148c04525212
+                        Model: ref!! 5ba7d4cf-c3f4-409e-99c5-9b99a52f61f4
+                        ModelComponent: null
+                        InitialAngularVelocityMultiplier: 0.2
+                        InitialVelocityMultiplier: 1.0
+                    923e1bb8d661e0f557db5ea7fcf22db5: !RigidbodyComponent
+                        Id: c2b1c120-6306-4500-8f8d-40fb9a40281a
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        IsKinematic: false
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            18fe513cdc595dad40353ce2b001c885: !SphereColliderShapeDesc
+                                Is2D: false
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}

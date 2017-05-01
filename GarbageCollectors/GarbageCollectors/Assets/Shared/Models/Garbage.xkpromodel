@@ -1,0 +1,10 @@
+!ProceduralModelAsset
+Id: 4f087962-8ee8-4644-a5aa-a3d800f25e48
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Type: !TeapotProceduralModel
+    Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+    UvScale: {X: 1.0, Y: 1.0}
+    LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+    MaterialInstance:
+        Material: 4928a6b6-ff00-41fb-9a11-620871af4bbe:MaterialTestB
