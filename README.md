@@ -21,6 +21,8 @@ A 2D versus game where you try to collect planets or objects by moving them into
 #### Development requirements:
 
 Can be done alone of expanded upon if there are more people
+
 ##### Extras:
+
 * Audio
 * Music

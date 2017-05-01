@@ -1,0 +1,7 @@
+!Texture
+Id: ea611b31-6804-46cf-93f9-823398f1b7f0
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../../Resources/Textures/wood_gloss/wood_gloss_dif.png
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}

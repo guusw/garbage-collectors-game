@@ -1,0 +1,6 @@
+!Texture
+Id: 48298ae2-5c69-42eb-9fa3-fe6d997bb56e
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../../Resources/Textures/wood_gloss/wood_gloss_nml.png
+Type: !NormalMapTextureType {}

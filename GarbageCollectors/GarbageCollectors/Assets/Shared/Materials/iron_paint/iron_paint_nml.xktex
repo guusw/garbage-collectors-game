@@ -1,0 +1,6 @@
+!Texture
+Id: bd4338ce-1c71-45c9-a4d2-f7c87cd959be
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../../Resources/Textures/iron_blend/paint/iron_paint_nml.png
+Type: !NormalMapTextureType {}

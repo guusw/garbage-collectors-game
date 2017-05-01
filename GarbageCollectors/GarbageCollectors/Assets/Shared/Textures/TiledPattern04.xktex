@@ -1,0 +1,7 @@
+!Texture
+Id: 93eab1af-fc51-4fc8-8e97-2841661b96a0
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../Resources/Textures/TiledPattern04.png
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}

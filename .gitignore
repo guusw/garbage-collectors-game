@@ -2,3 +2,4 @@ Cache
 obj
 bin
 *~
+*.lock.json

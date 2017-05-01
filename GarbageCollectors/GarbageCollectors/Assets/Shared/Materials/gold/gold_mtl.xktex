@@ -1,0 +1,7 @@
+!Texture
+Id: 862f3b0a-96c8-430d-8fe3-9c5bc3da5d7c
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../../Resources/Textures/gold/gold_mtl.png
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
