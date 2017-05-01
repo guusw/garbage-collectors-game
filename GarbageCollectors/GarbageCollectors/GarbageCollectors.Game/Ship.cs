@@ -15,7 +15,8 @@ namespace GarbageCollectors
 {
     public class Ship : SyncScript
     {
-        public const float ZDepth = 0.0f;
+        public static readonly float ZDepth = 0.0f;
+        public static readonly float InputEpsilon = 0.0001f;
 
         [DataMemberIgnore]
         public float Rotation
@@ -52,9 +53,20 @@ namespace GarbageCollectors
         {
             // Apply forces
             Vector2 currentVelocity = Velocity;
-            
-            Entity.Transform.Rotation = Entity.Transform.Rotation *
-                                        Quaternion.RotationZ(RotationSpeed.Radians * rotationInput); 
+
+            float speedMult = (float)Game.UpdateTime.Elapsed.TotalSeconds;
+
+            if (Math.Abs(rotationInput) > InputEpsilon)
+            {
+                float addRotaton = RotationSpeed.Radians * rotationInput * speedMult;
+                Entity.Transform.Rotation = Entity.Transform.Rotation * Quaternion.RotationZ(addRotaton);
+            }
+
+            if (Math.Abs(accelerationInput) > InputEpsilon)
+            {
+                float addAcceleration = AcclerationSpeed * accelerationInput * speedMult;
+                currentVelocity += Forward * addAcceleration;
+            }
 
             // Update position and velocity while completely ignoring the z axis
             Rigidbody.LinearVelocity = new Vector3(currentVelocity, 0.0f);
@@ -75,3 +87,4 @@ namespace GarbageCollectors
         }
     }
 }
+

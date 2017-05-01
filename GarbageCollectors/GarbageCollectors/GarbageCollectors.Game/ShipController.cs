@@ -58,10 +58,14 @@ namespace GarbageCollectors
 
         void ReadKeyboardInputState(ref InputState state)
         {
-            if (Input.IsKeyDown(Keys.A))
+            if (Input.IsKeyDown(Keys.A) || Input.IsKeyDown(Keys.Left))
                 state.Rotation -= 1.0f;
-            if (Input.IsKeyDown(Keys.D))
+            if (Input.IsKeyDown(Keys.D) || Input.IsKeyDown(Keys.Right))
                 state.Rotation += 1.0f;
+            if (Input.IsKeyDown(Keys.S) || Input.IsKeyDown(Keys.Down))
+                state.Acceleration -= 1.0f;
+            if (Input.IsKeyDown(Keys.W) || Input.IsKeyDown(Keys.Up))
+                state.Acceleration += 1.0f;
         }
 
         void ReadControllerInputState(int gamePadIndex, ref InputState state)
