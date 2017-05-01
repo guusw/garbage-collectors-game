@@ -19,23 +19,9 @@ Hierarchy:
         - d44e4921-1f0d-4130-8052-a2b3434af6eb
         - dec35148-52ac-4193-94a9-0d3ee36259b8
         - 7841fc37-43ce-435c-924c-5a2e2386b100
+        - c3e2b839-c7cf-44e4-8ab9-0bae9f51652d
+        - 2d18debb-7fa5-47a8-87c4-e9d791d0b6e2
     Parts:
-        -   Folder: null
-            Entity:
-                Id: 02d75a1d-ee36-4c4b-9f00-eb866762df25
-                Name: GridBase10x10
-                Components:
-                    743ffe03dc7419ffeeaae13216cae2db: !TransformComponent
-                        Id: 646ba065-b01b-47f6-a014-650a9d115307
-                        Position: {X: 25.0, Y: 25.0, Z: 0.0}
-                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
-                        Scale: {X: 5.0, Y: 5.0, Z: 5.0}
-                        Children: {}
-                    f3c60fc9a3938653537e207072f9123d: !ModelComponent
-                        Id: 152851fe-96a4-4879-906a-9b344b2d5d00
-                        Model: 1da96b5f-532f-4e76-9c24-14cc7c0e74fc:Models/GridBase10x10
-                        Materials:
-                            f00c24d1e8d9cb202093643605960636~0: bedd10f8-4446-406f-a2f1-3ea24cde28f5:Materials/Background0
         -   Entity:
                 Id: 0a8afe25-e13c-4637-a7b6-7addd7b8c67e
                 Name: PlayerSpawner (Left)
@@ -51,11 +37,11 @@ Hierarchy:
                         Prefab: e9dd6196-6ca9-4c35-a2e5-ada88736d3a0:Prefabs/Ship
         -   Entity:
                 Id: 12bc1995-88e1-4ca4-91c1-c1114e72806b
-                Name: ObjectSpawner (Top)
+                Name: ObjectSpawner 0
                 Components:
                     b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
                         Id: b843e169-0a4b-47e4-8ad4-30779267e124
-                        Position: {X: 2.98023224E-08, Y: 1.5, Z: 0.0}
+                        Position: {X: -1.5, Y: 2.5, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -65,11 +51,11 @@ Hierarchy:
         -   Folder: null
             Entity:
                 Id: 1ad9765a-15d5-4d34-bd1b-b7683bbdca7f
-                Name: ObjectSpawner
+                Name: ObjectSpawner 1
                 Components:
                     b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
                         Id: f2f97f8c-7e51-4f6e-ac68-cfc29155a210
-                        Position: {X: 2.98023224E-08, Y: -1.5, Z: 0.0}
+                        Position: {X: 1.5, Y: -2.5, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -90,8 +76,25 @@ Hierarchy:
                         Id: 295044c1-f1f9-4ef6-81d6-f1b00568afd8
                         Name: null
                         Projection: Perspective
-                        VerticalFieldOfView: 25.0
+                        VerticalFieldOfView: 24.0
                         Slot: d9c63fc6-e98c-49e9-91c0-3a8c500a02c0
+        -   Folder: null
+            Entity:
+                Id: 2d18debb-7fa5-47a8-87c4-e9d791d0b6e2
+                Name: BackgroundLayer1
+                Components:
+                    694c9f5ed858951b6e12b3a957c74a10: !TransformComponent
+                        Id: f014f315-0f8a-4383-aba0-18133ea8d8c8
+                        Position: {X: 0.0, Y: 0.0, Z: -15.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0183193982, W: 0.999832153}
+                        Scale: {X: 0.7, Y: 0.7, Z: 0.7}
+                        Children:
+                            2d14a4d8981b06b9f8b265d1574f9d81: ref!! a3de9a72-05c8-42fc-85e1-d47ff1445ca3
+                    70ac8925dde54b200967756ad10bb0df: !GarbageCollectors.BackgroundLayer,GarbageCollectors.Game
+                        Id: f053bbc0-b884-499f-a142-104891fd5507
+                        RotationSpeed: {Radians: 0.00523598772}
+                        CircularMovement: {Radians: 0.00174532924}
+                        CircularMovementRadius: 5.0
         -   Folder: null
             Entity:
                 Id: 5e36d795-b18c-4582-9947-1dd6b26d18f5
@@ -156,30 +159,16 @@ Hierarchy:
                 Components:
                     694c9f5ed858951b6e12b3a957c74a10: !TransformComponent
                         Id: c0833b11-a1b1-46db-a887-ba4c4e074f97
-                        Position: {X: 0.0, Y: -14.999999, Z: -40.0}
+                        Position: {X: 0.0, Y: 0.0, Z: -30.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: -0.447253555, W: 0.8944072}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Scale: {X: 2.0, Y: 2.0, Z: 2.0}
                         Children:
                             2d14a4d8981b06b9f8b265d1574f9d81: ref!! 8f49646d-17ca-4570-acfa-d4f92554aa81
-                            a8222e7b1dc6180a136c88b9a8566b9b: ref!! 88a71eee-a0e3-4f09-b268-b666a80e0eb5
-                            8599b3e8410601ebcd6a484f38d0c89c: ref!! 646ba065-b01b-47f6-a014-650a9d115307
-                            f39d507d6d547e79fc57968e08056083: ref!! 9f149941-007c-4327-9477-a5bf6e3f56d1
-        -   Folder: null
-            Entity:
-                Id: 83afd6bc-558d-41e9-aad1-ddd2e88cc0ba
-                Name: GridBase10x10
-                Components:
-                    743ffe03dc7419ffeeaae13216cae2db: !TransformComponent
-                        Id: 9f149941-007c-4327-9477-a5bf6e3f56d1
-                        Position: {X: 25.0, Y: -25.0, Z: 0.0}
-                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
-                        Scale: {X: 5.0, Y: 5.0, Z: 5.0}
-                        Children: {}
-                    f3c60fc9a3938653537e207072f9123d: !ModelComponent
-                        Id: de3b1fa8-1ea9-4107-9cc0-32d09b9f137d
-                        Model: 1da96b5f-532f-4e76-9c24-14cc7c0e74fc:Models/GridBase10x10
-                        Materials:
-                            f00c24d1e8d9cb202093643605960636~0: bedd10f8-4446-406f-a2f1-3ea24cde28f5:Materials/Background0
+                    55b2c851192432bb603285845ac8e449: !GarbageCollectors.BackgroundLayer,GarbageCollectors.Game
+                        Id: dd84a270-895c-4845-8297-895f1bfb5a03
+                        RotationSpeed: {Radians: 0.05235988}
+                        CircularMovement: {Radians: 0.0}
+                        CircularMovementRadius: 0.0
         -   Folder: null
             Entity:
                 Id: 9df2af2b-98af-461a-8089-c90dacceb1ac
@@ -250,22 +239,38 @@ Hierarchy:
                 BasePartAsset: aaefcf1a-b6d2-4bdb-b0ba-20bfa8e393e2:BlocksPrefabs/Box3x1x1
                 BasePartId: b86036f4-0ce3-4794-9947-a61378390d41
                 InstanceId: c6ca1774-b187-4f9a-8ef2-93841fc48229
-        -   Folder: null
-            Entity:
-                Id: c0159c6a-7e6b-45ca-a75f-54a6745da692
+        -   Entity:
+                Id: bf5c8bec-8f6d-4b80-8bf3-5a642425c830
                 Name: GridBase10x10
                 Components:
                     743ffe03dc7419ffeeaae13216cae2db: !TransformComponent
-                        Id: 88a71eee-a0e3-4f09-b268-b666a80e0eb5
-                        Position: {X: -25.0, Y: -25.0, Z: 0.0}
+                        Id: a3de9a72-05c8-42fc-85e1-d47ff1445ca3
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
-                        Scale: {X: 5.0, Y: 5.0, Z: 5.0}
+                        Scale: {X: 4.0, Y: 4.0, Z: 4.0}
                         Children: {}
                     f3c60fc9a3938653537e207072f9123d: !ModelComponent
-                        Id: a3501a14-16fb-4dfa-8ecf-5098aa5e90e4
+                        Id: e8dcd000-0f89-40f6-83fa-fd44456884ae
                         Model: 1da96b5f-532f-4e76-9c24-14cc7c0e74fc:Models/GridBase10x10
                         Materials:
-                            f00c24d1e8d9cb202093643605960636~0: bedd10f8-4446-406f-a2f1-3ea24cde28f5:Materials/Background0
+                            f00c24d1e8d9cb202093643605960636~0: 4e08642e-8e1e-4a60-8485-6b322c6c6fe4:Materials/Background2
+        -   Folder: null
+            Entity:
+                Id: c3e2b839-c7cf-44e4-8ab9-0bae9f51652d
+                Name: BackgroundLayer1
+                Components:
+                    694c9f5ed858951b6e12b3a957c74a10: !TransformComponent
+                        Id: 5ba7eaa3-c76a-4792-acc7-7e82d82bff52
+                        Position: {X: 0.0, Y: 0.0, Z: -25.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: -0.447253555, W: 0.8944072}
+                        Scale: {X: 1.25, Y: 1.25, Z: 1.25}
+                        Children:
+                            2d14a4d8981b06b9f8b265d1574f9d81: ref!! 784758f4-bc0f-41c6-aa6a-e54b642cf4d1
+                    9455da634b2bf20d80b07fcda91260da: !GarbageCollectors.BackgroundLayer,GarbageCollectors.Game
+                        Id: a058890c-1ecf-4ba0-91a1-f546c4ffc9b9
+                        RotationSpeed: {Radians: 0.01308997}
+                        CircularMovement: {Radians: 0.008726646}
+                        CircularMovementRadius: 5.0
         -   Folder: null
             Entity:
                 Id: d44e4921-1f0d-4130-8052-a2b3434af6eb
@@ -315,6 +320,21 @@ Hierarchy:
                 BasePartId: b86036f4-0ce3-4794-9947-a61378390d41
                 InstanceId: e2faac43-bc96-4fef-bcdf-ad72fd17d63e
         -   Entity:
+                Id: dde60703-7ff4-4411-9057-20a3dc87c092
+                Name: GridBase10x10
+                Components:
+                    743ffe03dc7419ffeeaae13216cae2db: !TransformComponent
+                        Id: 784758f4-bc0f-41c6-aa6a-e54b642cf4d1
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
+                        Scale: {X: 4.0, Y: 4.0, Z: 4.0}
+                        Children: {}
+                    f3c60fc9a3938653537e207072f9123d: !ModelComponent
+                        Id: aa730327-c53f-47b0-b46b-18baba1ae743
+                        Model: 1da96b5f-532f-4e76-9c24-14cc7c0e74fc:Models/GridBase10x10
+                        Materials:
+                            f00c24d1e8d9cb202093643605960636~0: d59a4ba3-861e-4cb3-8bb1-02877cffdec6:Materials/Background1
+        -   Entity:
                 Id: dec35148-52ac-4193-94a9-0d3ee36259b8
                 Name: Manager
                 Components:
@@ -334,11 +354,11 @@ Hierarchy:
                                 Color: {R: 0.09260156, G: 0.65206933, B: 0.98775, A: 1.0}
                                 Spawner: ref!! 76565d0d-5a14-45c7-a76e-520f4d51430b
                             3f58de843686314e701f1f8c47064357:
-                                Color: {R: 0.83775, G: 0.474506855, B: 0.256560922, A: 1.0}
+                                Color: {R: 0.98775, G: 0.448533684, B: 0.1296422, A: 1.0}
                                 Spawner: ref!! 8ba72e0c-e26c-4a3f-82ab-57324b6c6a88
         -   Entity:
                 Id: ed720765-5adc-45b5-b35a-6a2166082a0c
-                Name: Skybox
+                Name: Ambient
                 Components:
                     e88ddf3b72cc9337a9fb22599e0ab7ab: !TransformComponent
                         Id: bd4f798e-aa21-4046-a6da-98a55a8f2b6c
@@ -346,22 +366,20 @@ Hierarchy:
                         Rotation: {X: 0.572966, Y: 0.0, Z: 0.0, W: 0.8195791}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    5f836a0b2b2770f6fb65043a0effe160: !BackgroundComponent
-                        Id: da1659f2-12b6-4ccb-be84-1d69511fa826
-                        Texture: 3a60e079-cd01-48f3-b172-db5b6f174453:Skybox Texture
                     a63fe4177bc281feb5a8a470ae0994c3: !LightComponent
                         Id: 94b3052b-8f5b-4242-b7d2-998589abfeaf
-                        Type: !LightSkybox
-                            Skybox: 0d6e1ac3-3fb6-4437-b081-9d0788fbc260:Skybox
+                        Type: !LightAmbient
+                            Color: !ColorRgbProvider
+                                Value: {R: 0.40025, G: 0.40025, B: 0.40025}
         -   Entity:
                 Id: fc2fca74-4dc6-4d2f-a02e-f018204d2069
                 Name: GridBase10x10
                 Components:
                     743ffe03dc7419ffeeaae13216cae2db: !TransformComponent
                         Id: 8f49646d-17ca-4570-acfa-d4f92554aa81
-                        Position: {X: -25.0, Y: 25.0, Z: 0.0}
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
-                        Scale: {X: 5.0, Y: 5.0, Z: 5.0}
+                        Scale: {X: 4.0, Y: 4.0, Z: 4.0}
                         Children: {}
                     f3c60fc9a3938653537e207072f9123d: !ModelComponent
                         Id: c21a8c70-a841-4905-8e0e-81c08032f3bf

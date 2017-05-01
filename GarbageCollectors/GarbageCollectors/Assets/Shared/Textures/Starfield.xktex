@@ -1,0 +1,9 @@
+!Texture
+Id: 99a2fecb-ff15-46a3-871e-3b0d9eb37ae5
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../Resources/Textures/Starfield.png
+IsCompressed: false
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
+GenerateMipmaps: false

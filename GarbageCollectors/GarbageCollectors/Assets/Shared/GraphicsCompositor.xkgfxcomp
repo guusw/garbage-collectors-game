@@ -120,7 +120,7 @@ SharedRenderers:
         Id: 32bbc7a8-7429-4a7a-ad99-a3519e92ed37
         Clear:
             Id: 4bc4b2ca-027e-4e4a-94cb-2912709bef5f
-            Color: {R: 0.392156869, G: 0.58431375, B: 0.929411769, A: 1.0}
+            Color*: {R: 0.08775, G: 0.08775, B: 0.08775, A: 1.0}
         LightProbes: true
         OpaqueRenderStage: ref!! 3fab7e96-c9b8-414e-a801-eb98c41a57d1
         TransparentRenderStage: ref!! ff5d301f-8e3b-4206-a6d7-e2e404406511
@@ -174,10 +174,21 @@ SharedRenderers:
             Transforms:
                 1e06f805f8b2e949a06c30d45fe413ef: !ToneMap
                     Operator: !ToneMapHejl2Operator {}
+                    AutoKeyValue*: false
+                    KeyValue*: 0.1
+                    AutoExposure*: false
+                    Exposure*: 0.1
+                    TemporalAdaptation*: false
+                    Contrast*: 0.0
                 c57351444609d14ea258b3f511ec8a74: !FilmGrain
-                    Enabled: false
+                    Enabled*: true
+                    Amount*: 0.2
+                    GrainSize*: 0.05
+                    Animate*: true
+                    LuminanceFactor*: 0.2
                 e86e22e9a5d65545b8b55fca26e0afee: !Vignetting
-                    Enabled: false
+                    Enabled*: true
+                    Amount*: 0.432615
                     Color: {R: 0.0, G: 0.0, B: 0.0}
         Antialiasing: !FXAAEffect {}
     ee80a20a9bd99f2d70711114e15fe7ca: !SiliconStudio.Xenko.Rendering.Compositing.DebugRenderer,SiliconStudio.Xenko.Engine

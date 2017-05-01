@@ -1,0 +1,8 @@
+!Texture
+Id: decfac80-f900-491c-a65b-3c6a46103361
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../Resources/Textures/BG1.png
+IsCompressed: false
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}

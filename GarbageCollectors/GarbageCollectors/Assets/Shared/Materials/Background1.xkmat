@@ -1,5 +1,5 @@
 !MaterialAsset
-Id: bedd10f8-4446-406f-a2f1-3ea24cde28f5
+Id: d59a4ba3-861e-4cb3-8bb1-02877cffdec6
 SerializedVersion: {Xenko: 2.0.0.0}
 Tags: []
 Attributes:
@@ -11,14 +11,14 @@ Attributes:
         Enabled: false
     Emissive: !MaterialEmissiveMapFeature
         EmissiveMap: !ComputeTextureColor
-            Texture: decfac80-f900-491c-a65b-3c6a46103361:Textures/BG1
+            Texture: 99a2fecb-ff15-46a3-871e-3b0d9eb37ae5:Textures/Starfield
             FallbackValue:
                 Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
             Scale: {X: 1.0, Y: 1.0}
             Offset: {X: 0.0, Y: 0.0}
             Swizzle: null
         Intensity: !ComputeFloat
-            Value: 0.04
+            Value: 2.0
         UseAlpha: true
     Transparency: !MaterialTransparencyBlendFeature
         Alpha: !ComputeFloat

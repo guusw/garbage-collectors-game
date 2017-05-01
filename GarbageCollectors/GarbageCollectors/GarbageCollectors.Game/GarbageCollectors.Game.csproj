@@ -108,6 +108,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackgroundLayer.cs" />
     <Compile Include="BaseSpawner.cs" />
     <Compile Include="Bezier.cs" />
     <Compile Include="GameManager.cs" />
