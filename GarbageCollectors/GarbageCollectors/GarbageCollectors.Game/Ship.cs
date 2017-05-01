@@ -38,6 +38,7 @@ namespace GarbageCollectors
         public AngleSingle RotationSpeed = new AngleSingle(200.0f, AngleType.Degree);
         public float AcclerationSpeed = 3.0f;
         public float MaximumSpeed = 1.0f;
+        public float BrakeSpeed = 1.0f;
 
         private InputState input;
 
@@ -58,7 +59,7 @@ namespace GarbageCollectors
             // Apply forces
             Vector2 newVelocity = Velocity;
 
-            float speedMult = (float)Game.UpdateTime.Elapsed.TotalSeconds;
+            float dtMult = (float)Game.UpdateTime.Elapsed.TotalSeconds;
 
             if (Math.Abs(input.Rotation) > InputEpsilon)
             {
@@ -72,16 +73,23 @@ namespace GarbageCollectors
 
             if (Math.Abs(input.Acceleration) > InputEpsilon)
             {
-                float addAcceleration = AcclerationSpeed * input.Acceleration * speedMult;
+                float addAcceleration = AcclerationSpeed * input.Acceleration * dtMult;
                 newVelocity += Forward * addAcceleration;
             }
-
+            
             // Maximum speed
             float velocity = newVelocity.Length();
             if (velocity > 0)
             {
                 Vector2 newVelocityDir = newVelocity / velocity;
                 velocity = MathUtil.Clamp(velocity, 0.0f, MaximumSpeed);
+
+                if (input.Brake > 0.0f)
+                {
+                    float addBrake = BrakeSpeed * dtMult;
+                    velocity = Math.Max(0, velocity - addBrake);
+                }
+
                 newVelocity = newVelocityDir * velocity;
             }
 

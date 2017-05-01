@@ -28,7 +28,7 @@ Hierarchy:
                             BoundingShape: null
                             Emitters:
                                 1099917654fe40810941ee8a952c3995:
-                                    ParticleLifetime: {X: 2.0, Y: 2.0}
+                                    ParticleLifetime: {X: 1.0, Y: 1.0}
                                     SortingPolicy: ByOrder
                                     ShapeBuilder: !ShapeBuilderRibbon
                                         SmoothingPolicy: Best
@@ -41,7 +41,7 @@ Hierarchy:
                                             UVClockwise: Degree0
                                     Material: !ParticleMaterialComputeColor
                                         ComputeColor: !ComputeFloat4
-                                            Value: {X: 1.0, Y: 20.0, Z: 50.0, W: 1.0}
+                                            Value: {X: 1.0, Y: 20.0, Z: 50.0, W: 1.99}
                                         UVBuilder: null
                                         ForceTexCoords: false
                                     Spawners:
@@ -118,6 +118,18 @@ Hierarchy:
                                             DisplayParticleScaleUniform: false
                                             SamplerMain: !ComputeCurveSamplerColor4
                                                 Curve: !ComputeAnimationCurveColor4
-                                                    KeyFrames: {}
+                                                    KeyFrames:
+                                                        299d13d9c2c066949d4d7e87963f4512:
+                                                            Key: 0.0
+                                                            Value: {R: 0.0, G: 0.0, B: 0.0, A: 1.0}
+                                                            TangentType: Linear
+                                                        54a4c4247931a8c3146c718acc71e910:
+                                                            Key: 0.306608
+                                                            Value: {R: 0.0, G: 0.0, B: 0.0, A: 0.3392683}
+                                                            TangentType: Linear
+                                                        a77e9ba72a2ec048a5eb5c655991beba:
+                                                            Key: 1.0
+                                                            Value: {R: 0.0, G: 0.0, B: 0.0, A: 0.0}
+                                                            TangentType: Linear
                                             SamplerOptional: null
                                             SeedOffset: 0
