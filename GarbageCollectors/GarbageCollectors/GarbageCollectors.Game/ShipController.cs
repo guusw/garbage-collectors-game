@@ -11,11 +11,6 @@ using SiliconStudio.Xenko.Engine;
 
 namespace GarbageCollectors
 {
-    struct InputState
-    {
-        public float Rotation;
-        public float Acceleration;
-    }
     public class ShipController : SyncScript
     {
         public Ship Ship { get; set; }
@@ -29,12 +24,7 @@ namespace GarbageCollectors
 
         public override void Update()
         {
-            InputState input = new InputState
-            {
-                Acceleration = 0.0f,
-                Rotation = 0.0f,
-            };
-
+            InputState input = InputState.None;
             ReadInputState(PlayerIndex, ref input);
         }
 
@@ -49,30 +39,29 @@ namespace GarbageCollectors
                 ReadControllerInputState(playerIndex - 1, ref state);
             }
 
-            if (Ship == null)
-                return;
-
-            Ship.Rotate(state.Rotation);
-            Ship.Accelerate(state.Acceleration);
+            Ship?.SendInput(state);
         }
 
         void ReadKeyboardInputState(ref InputState state)
         {
             if (Input.IsKeyDown(Keys.A) || Input.IsKeyDown(Keys.Left))
-                state.Rotation -= 1.0f;
-            if (Input.IsKeyDown(Keys.D) || Input.IsKeyDown(Keys.Right))
                 state.Rotation += 1.0f;
+            if (Input.IsKeyDown(Keys.D) || Input.IsKeyDown(Keys.Right))
+                state.Rotation -= 1.0f;
             if (Input.IsKeyDown(Keys.S) || Input.IsKeyDown(Keys.Down))
                 state.Acceleration -= 1.0f;
             if (Input.IsKeyDown(Keys.W) || Input.IsKeyDown(Keys.Up))
                 state.Acceleration += 1.0f;
+            if (Input.IsKeyDown(Keys.LeftShift) || Input.IsKeyDown(Keys.RightShift))
+                state.Brake = 1.0f;
         }
 
         void ReadControllerInputState(int gamePadIndex, ref InputState state)
         {
             var gamePadState = Input.GetGamePad(gamePadIndex);
-            state.Rotation += gamePadState.LeftThumb.X;
+            state.Rotation -= gamePadState.LeftThumb.X;
             state.Acceleration += gamePadState.RightThumb.Y;
+            state.Brake = gamePadState.LeftTrigger;
         }
     }
 }

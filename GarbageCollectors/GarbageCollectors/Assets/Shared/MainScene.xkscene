@@ -193,7 +193,7 @@ Hierarchy:
                     9dff5d1ee3fbb38be29b62d11f0097fa: !GarbageCollectors.Ship,GarbageCollectors.Game
                         Id: 2fba61d5-f6c1-46e4-a3f1-ffa737b0626b
                         RotationSpeed: {Radians: 3.49065852}
-                        AcclerationSpeed: 3.0
+                        AcclerationSpeed: 5.0
                     e3d5e375ef587648e34b812e427b1c24: !GarbageCollectors.ShipController,GarbageCollectors.Game
                         Id: 7ba65ba5-4e1e-4f03-aaab-0dbada979f3f
                         Ship: ref!! 2fba61d5-f6c1-46e4-a3f1-ffa737b0626b

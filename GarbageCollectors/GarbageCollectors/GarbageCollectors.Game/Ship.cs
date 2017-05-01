@@ -33,13 +33,12 @@ namespace GarbageCollectors
         [DataMemberIgnore]
         public Vector2 Position => Entity.Transform.Position.XY();
         [DataMemberIgnore]
-        public Vector2 Forward => Entity.Transform.WorldMatrix.Forward.XY();
+        public Vector2 Forward => Vector2.Normalize(Entity.Transform.WorldMatrix.Up.XY());
 
         public AngleSingle RotationSpeed = new AngleSingle(200.0f, AngleType.Degree);
         public float AcclerationSpeed = 3.0f;
 
-        private float accelerationInput;
-        private float rotationInput;
+        private InputState input;
 
         public override void Start()
         {
@@ -47,6 +46,8 @@ namespace GarbageCollectors
             Priority = 2;
 
             Rigidbody = Entity.Get<RigidbodyComponent>();
+            Rigidbody.LinearFactor = new Vector3(1,1,0);
+            Rigidbody.AngularFactor = new Vector3(0,0,1);
         }
 
         public override void Update()
@@ -56,34 +57,35 @@ namespace GarbageCollectors
 
             float speedMult = (float)Game.UpdateTime.Elapsed.TotalSeconds;
 
-            if (Math.Abs(rotationInput) > InputEpsilon)
+            if (Math.Abs(input.Rotation) > InputEpsilon)
             {
-                float addRotaton = RotationSpeed.Radians * rotationInput * speedMult;
-                Entity.Transform.Rotation = Entity.Transform.Rotation * Quaternion.RotationZ(addRotaton);
+                float addRotaton = RotationSpeed.Radians * input.Rotation;
+                Rigidbody.AngularVelocity = new Vector3(0, 0, addRotaton);
+            }
+            else
+            {
+                Rigidbody.AngularVelocity = Vector3.Zero;
             }
 
-            if (Math.Abs(accelerationInput) > InputEpsilon)
+            if (Math.Abs(input.Acceleration) > InputEpsilon)
             {
-                float addAcceleration = AcclerationSpeed * accelerationInput * speedMult;
+                float addAcceleration = AcclerationSpeed * input.Acceleration * speedMult;
                 currentVelocity += Forward * addAcceleration;
             }
 
             // Update position and velocity while completely ignoring the z axis
             Rigidbody.LinearVelocity = new Vector3(currentVelocity, 0.0f);
-            Entity.Transform.Position = new Vector3(Position, ZDepth);
 
-            accelerationInput = 0.0f;
-            rotationInput = 0.0f;
+            // Clear input after processing it
+            input = InputState.None;
         }
 
-        public void Rotate(float rotation)
+        public void SendInput(InputState input)
         {
-            rotationInput = MathUtil.Clamp(rotationInput + rotation, -1.0f, 1.0f);
-        }
-
-        public void Accelerate(float acceleration)
-        {
-            accelerationInput = MathUtil.Clamp(accelerationInput + acceleration, -1.0f, 1.0f);
+            this.input = input;
+            input.Rotation = MathUtil.Clamp(input.Rotation, -1.0f, 1.0f);
+            input.Acceleration = MathUtil.Clamp(input.Acceleration, -1.0f, 1.0f);
+            input.Brake = (input.Brake < 0.5f) ? 0.0f : 1.0f;
         }
     }
 }

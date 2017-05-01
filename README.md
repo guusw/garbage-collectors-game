@@ -30,14 +30,14 @@ Can be done alone of expanded upon if there are more people
 
 ## TODO List (Sorted by priority)
 
-* Create space-ship controls
-    * No wrapping, this means the ship and all objects bounce from the walls
-    * Controller support
-    * Variable player
-    * Teams
-* Create objects
-* Create collection areas
-* Create game timer and scoring
-* Text on objects (ui layer using projected world space positions)
-* (optional) last-touched object state
-* Random name using the names of xenko classes for each object
+* [ ] Create space-ship controls
+    * [X] No wrapping, this means the ship and all objects bounce from the walls
+    * [X] Controller support
+    * [ ] Variable player
+    * [ ] Teams
+* [ ] Create objects
+* [ ] Create collection areas
+* [ ] Create game timer and scoring
+* [ ] Text on objects (ui layer using projected world space positions)
+* [ ] (optional) last-touched object state
+* [ ] Random name using the names of xenko classes for each object
