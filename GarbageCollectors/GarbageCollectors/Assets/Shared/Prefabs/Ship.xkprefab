@@ -350,6 +350,11 @@ Hierarchy:
                         AcclerationSpeed: 10.0
                         MaximumSpeed: 5.0
                         BrakeSpeed: 10.0
+                        ColorModels:
+                            3868f8ef4c5a895685da8c07556c171b:
+                                Model: ref!! 41d859b1-4c2b-4949-ae69-246a3e592e0d
+                                Templates:
+                                    e5ca87977851f43f2fbb9ce98a772af2: 8222ddaf-f1ed-4e0c-9d2b-559522395e2f:Materials/Ship
         -   Entity:
                 Id: 80676ab7-a244-4d9c-8133-f1e79dccd9e5
                 Name: Base

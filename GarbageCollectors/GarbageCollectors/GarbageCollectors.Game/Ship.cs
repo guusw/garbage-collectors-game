@@ -11,6 +11,7 @@ using SiliconStudio.Core.Mathematics;
 using SiliconStudio.Xenko.Input;
 using SiliconStudio.Xenko.Engine;
 using SiliconStudio.Xenko.Physics;
+using SiliconStudio.Xenko.Rendering;
 using SiliconStudio.Xenko.Rendering.Materials;
 
 namespace GarbageCollectors
@@ -24,6 +25,7 @@ namespace GarbageCollectors
     {
         [InlineProperty]
         public ModelComponent Model { get; set; }
+        public List<Material> Templates { get; private set; } = new List<Material>();
     }
 
 
@@ -122,7 +124,14 @@ namespace GarbageCollectors
         {
             foreach (var model in ColorModels)
             {
-                model.Model.Materials[0].Parameters.Set(MaterialKeys.DiffuseValue, color);
+                var modelComponent = model.Model;
+                modelComponent.Materials.Clear();
+                int overrideIndex = 0;
+                foreach (var material in model.Templates)
+                {
+                    modelComponent.Materials.Add(overrideIndex++, material);
+                    material.Parameters.Set(MaterialKeys.DiffuseValue, color);
+                }
             }
         }
 

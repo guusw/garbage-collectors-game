@@ -23,6 +23,7 @@ namespace GarbageCollectors
             var shipController = new ShipController();
             newEntity.Add(shipController);
             shipController.Player = player;
+            shipController.Ship = newShip;
 
             return shipController;
         }
