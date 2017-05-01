@@ -1,0 +1,103 @@
+!PrefabAsset
+Id: e9dd6196-6ca9-4c35-a2e5-ada88736d3a0
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Hierarchy:
+    RootPartIds:
+        - 56e2f091-5915-458e-858c-86cd3a8ebd94
+    Parts:
+        -   Entity:
+                Id: 1fb41649-e463-43f2-b31d-e3ab55cf4b14
+                Name: GripRight
+                Components:
+                    21e01081afeefc1389fe9953c7a25e04: !TransformComponent
+                        Id: 9406de63-bd21-4aa3-add5-669d07075dac
+                        Position: {X: 0.62500006, Y: 0.08333333, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 0.25, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    36bf5424349c95a6601eef1873feec2f: !ModelComponent
+                        Id: ec522216-dea3-4ba2-9d10-5e9f092ec1a8
+                        Model: 069ecc7d-7133-4345-883b-b67b48fca704:Models/Box
+                        Materials: {}
+        -   Entity:
+                Id: 3bf057c2-2987-430f-9c9e-773b631497db
+                Name: GripLeft
+                Components:
+                    21e01081afeefc1389fe9953c7a25e04: !TransformComponent
+                        Id: 032d8b46-93b8-4586-a869-8cbcda8bacc2
+                        Position: {X: -0.62499994, Y: 0.083, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 0.25, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    36bf5424349c95a6601eef1873feec2f: !ModelComponent
+                        Id: 19523bb9-22d3-45d3-a794-57c4f3f3982e
+                        Model: 069ecc7d-7133-4345-883b-b67b48fca704:Models/Box
+                        Materials: {}
+        -   Entity:
+                Id: 56e2f091-5915-458e-858c-86cd3a8ebd94
+                Name: Ship
+                Components:
+                    d22b641d1ba2c006eba87857e38a4329: !TransformComponent
+                        Id: d123f6d9-42ea-4d1f-8f84-4033c8f10d11
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 0.75, Y: 0.75, Z: 0.75}
+                        Children:
+                            fc093103724878c88c970af63c597eb2: ref!! 032d8b46-93b8-4586-a869-8cbcda8bacc2
+                            8eb9d2a31677bafa8043daaecca2be50: ref!! 9406de63-bd21-4aa3-add5-669d07075dac
+                            a8188c2badc1fee1b0f885a6bdc0e257: ref!! 41a410fe-f1ec-4959-9e25-a4696ce6cf21
+                    1698a6d5ad4a374bbf1b56cd4887a9f2: !RigidbodyComponent
+                        Id: 732a4865-24d0-4fef-b68c-7bb16453b0bd
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        IsKinematic: false
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: true
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            0ee41f47f6d2e055edc233176d71c52c: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 1.0, Y: 0.75, Z: 1.0}
+                                LocalOffset: {X: 0.0, Y: -0.125, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                            d0cfa90241a794b0e3231d69fbef84b6: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 0.25, Y: 1.0, Z: 1.0}
+                                LocalOffset: {X: -0.625, Y: 0.083, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                            e87bcd29109c03cbe9b6a4de80af0855: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 0.25, Y: 1.0, Z: 1.0}
+                                LocalOffset: {X: 0.625, Y: 0.083, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    9dff5d1ee3fbb38be29b62d11f0097fa: !GarbageCollectors.Ship,GarbageCollectors.Game
+                        Id: 471fefc7-e453-4206-8f9f-80b817d55814
+                        RotationSpeed: {Radians: 3.49065852}
+                        AcclerationSpeed: 3.0
+                    e3d5e375ef587648e34b812e427b1c24: !GarbageCollectors.ShipController,GarbageCollectors.Game
+                        Id: 4f07dda9-1f5c-4c6a-a825-e11b2e1574fc
+                        Ship: ref!! 471fefc7-e453-4206-8f9f-80b817d55814
+                        PlayerIndex: 0
+        -   Entity:
+                Id: 80676ab7-a244-4d9c-8133-f1e79dccd9e5
+                Name: Base
+                Components:
+                    b5ef9217ab1cc6ee3fdf1845a17dafc0: !TransformComponent
+                        Id: 41a410fe-f1ec-4959-9e25-a4696ce6cf21
+                        Position: {X: 0.0, Y: -0.125, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 0.75, Z: 1.0}
+                        Children: {}
+                    2f7e863fc0938d11a18135c70ed141b7: !ModelComponent
+                        Id: 41d859b1-4c2b-4949-ae69-246a3e592e0d
+                        Model: 069ecc7d-7133-4345-883b-b67b48fca704:Models/Box
+                        Materials: {}

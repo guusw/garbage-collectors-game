@@ -8,7 +8,7 @@ Materials:
     ebc0cfec026ffd470b819cfcb1ca2cbf:
         Name: MaterialA
         MaterialInstance:
-            Material: 8222ddaf-f1ed-4e0c-9d2b-559522395e2f:MaterialTestA
+            Material: 8222ddaf-f1ed-4e0c-9d2b-559522395e2f:Materials/Ship
     07d84ca53b7823d8fcdf7c46dab24576:
         Name: MaterialB
         MaterialInstance:
