@@ -159,8 +159,23 @@ namespace GarbageCollectors
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.BackgroundColor = ConsoleColor.Black;
                 int it = (int)TimeRemaining;
-                char d = (it % 2) == 0 ? '~' : '-';
-                Console.WriteLine(PadString("\t\t{0} Time Remaining: {1:0.##} {0}".ToFormat(d, TimeRemaining)));
+
+                // Decoration
+                char d;
+                switch (it % 3)
+                {
+                    default:
+                    case 0:
+                        d = '~';
+                        break;
+                    case 1:
+                        d = '-';
+                        break;
+                    case 2:
+                        d = '_';
+                        break;
+                }
+                Console.WriteLine(PadString("\t\t{0}{0} Time Remaining: {1:0.##} {0}{0}".ToFormat(d, TimeRemaining)));
 
                 // Update score
                 int i = 0;
