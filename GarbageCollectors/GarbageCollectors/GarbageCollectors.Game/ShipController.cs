@@ -36,13 +36,13 @@ namespace GarbageCollectors
 
         void ReadInputState(int playerIndex, ref InputState state)
         {
-            if (playerIndex == 0)
+            //if (playerIndex == 0)
+            //{
+            //    ReadKeyboardInputState(ref state);
+            //}
+            //else
             {
-                ReadKeyboardInputState(ref state);
-            }
-            else
-            {
-                ReadControllerInputState(playerIndex - 1, ref state);
+                ReadControllerInputState(playerIndex, ref state);
             }
 
             Ship?.SendInput(state);

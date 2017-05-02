@@ -261,10 +261,10 @@ namespace GarbageCollectors
 
         private  IEnumerable<Player> EnumeratePlayers()
         {
-            yield return new Player(0);
+            //yield return new Player(0);
 
             for (int i = 0; i < Input.GamePadCount; i++)
-                yield return new Player(i + 1);
+                yield return new Player(i);
         }
     }
 }
