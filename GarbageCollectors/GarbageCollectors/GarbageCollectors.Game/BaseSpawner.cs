@@ -46,6 +46,15 @@ namespace GarbageCollectors
             return newInstance;
         }
 
+        public void Reset()
+        {
+            var toRemove = Instances.ToList();
+            foreach (var inst in toRemove)
+            {
+                SceneSystem.SceneInstance.RootScene.Entities.Remove(inst);
+            }
+        }
+
         protected virtual void SceneInstanceOnEntityRemoved(object sender, Entity entity)
         {
             instances.Remove(entity);

@@ -37,12 +37,27 @@ Hierarchy:
                         Id: 76565d0d-5a14-45c7-a76e-520f4d51430b
                         Prefab: e9dd6196-6ca9-4c35-a2e5-ada88736d3a0:Prefabs/Ship
         -   Entity:
+                Id: 0c986c32-0914-4afe-acc3-0bc8f115c123
+                Name: Ambient
+                Components:
+                    e88ddf3b72cc9337a9fb22599e0ab7ab: !TransformComponent
+                        Id: 09a5a4b8-907c-4a6f-8de3-9983a272d85d
+                        Position: {X: -1.36505037E-07, Y: 1.99999917, Z: -2.00000119}
+                        Rotation: {X: -0.0104417233, Y: -0.204178959, Z: -0.413600117, W: -0.8872074}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    a63fe4177bc281feb5a8a470ae0994c3: !LightComponent
+                        Id: 1a4dbc0a-3447-4765-a366-11bbf90ac29f
+                        Type: !LightSkybox
+                            Skybox: 0d6e1ac3-3fb6-4437-b081-9d0788fbc260:Skybox
+                        Intensity: 0.1
+        -   Entity:
                 Id: 12bc1995-88e1-4ca4-91c1-c1114e72806b
                 Name: ObjectSpawner 0
                 Components:
                     b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
                         Id: b843e169-0a4b-47e4-8ad4-30779267e124
-                        Position: {X: -2.0, Y: 3.0, Z: 0.0}
+                        Position: {X: -2.0, Y: 2.5, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -54,7 +69,7 @@ Hierarchy:
                 Components:
                     b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
                         Id: f2f97f8c-7e51-4f6e-ac68-cfc29155a210
-                        Position: {X: 2.0, Y: -1.5, Z: 0.0}
+                        Position: {X: 3.0, Y: -2.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -66,7 +81,7 @@ Hierarchy:
                 Components:
                     b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
                         Id: 771e769e-830f-41e8-aca7-185e2f642d1e
-                        Position: {X: -2.0, Y: -0.5, Z: 0.0}
+                        Position: {X: 2.0, Y: -1.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -140,7 +155,7 @@ Hierarchy:
                 Components:
                     b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
                         Id: 9db8651d-db16-436b-bfdc-70c808b1b8bd
-                        Position: {X: 0.5, Y: -3.50000024, Z: 0.0}
+                        Position: {X: 3.0, Y: -3.50000024, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -178,13 +193,16 @@ Hierarchy:
                         ColliderShapes:
                             99ce723de855002f386e2ad87bcf11f7: !SphereColliderShapeDesc
                                 Is2D: false
-                                Radius: 1.2
+                                Radius: 2.0
                                 LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
                     b21afbfd6b7ad31757db1d86a8619454: !GarbageCollectors.CollectionArea,GarbageCollectors.Game
                         Id: 69d6c4d2-a12c-499e-aa89-12185604a59b
-                        PullStrengthMultiplier: 20.0
-                        CollectRadius: 0.5
-                        CollectionSpeed: 0.5
+                        PullStrengthMultiplier: 100.0
+                        BrakeStrengthMultiplier: 40.0
+                        BrakeRatio: 0.5
+                        MaxSpeed: 2.0
+                        CollectRadius: 1.0
+                        CollectionSpeed: 2.0
                         CollectEffect: ref!! 9087914b-1fe4-4bd4-9971-1f9c7d6e7cb1
                         ContinuousEffect: ref!! 4b6ae3b8-9779-4c76-a386-c92e8a2def31
             Base:
@@ -256,7 +274,7 @@ Hierarchy:
                 Components:
                     b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
                         Id: c4b6e223-083e-4ec5-994a-c463e76dfdc8
-                        Position: {X: -1.5, Y: -3.0, Z: 0.0}
+                        Position: {X: 1.0, Y: -1.5, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -1437,7 +1455,7 @@ Hierarchy:
                 Components:
                     b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
                         Id: 8667bcf4-7450-426a-99ab-d86cb73aab79
-                        Position: {X: -4.0, Y: 1.99999976, Z: 0.0}
+                        Position: {X: -4.5, Y: 3.5, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -1485,7 +1503,7 @@ Hierarchy:
                 Components:
                     b75eaf7b89a8e7bdb96398fb67b7defa: !TransformComponent
                         Id: 4e67b8ac-b6b3-407f-a109-7c0de89cfadf
-                        Position: {X: 0.5, Y: 3.49999976, Z: 0.0}
+                        Position: {X: -2.0, Y: 3.99999976, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -3752,7 +3770,7 @@ Hierarchy:
                 Components:
                     3ade49ef2182db82f0eba6e1deb71719: !TransformComponent
                         Id: 537beabd-f13e-4386-bce4-a09f9de086bd
-                        Position: {X: 3.5, Y: 0.0, Z: 0.0}
+                        Position: {X: 4.5, Y: -2.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -3815,14 +3833,15 @@ Hierarchy:
                 Components:
                     3015b35cc166286340c1a6daa01cf6fd: !TransformComponent
                         Id: 8a9f0bf2-88c7-4366-9a48-d6c1d8cc46b0
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Position: {X: -0.5, Y: -0.5, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     dc28242d00ca20ab7404dfb38f289387: !GarbageCollectors.GameManager,GarbageCollectors.Game
                         Id: 3a00a0c1-3fd3-4a73-ada0-e9d914abac6d
-                        ObjectSpawnTimoutRange: {X: 1.0, Y: 3.0}
-                        MaximumInstances: 10
+                        ObjectSpawnTimoutRange: {X: 3.0, Y: 5.0}
+                        MaximumInstances: 3
+                        TimeLimit: 60.0
                         Teams:
                             65b121aa3d0eb494fe249af33442caa5:
                                 Color: {R: 0.09260156, G: 0.65206933, B: 0.98775, A: 1.0}
@@ -3843,7 +3862,8 @@ Hierarchy:
                         Position: {X: 0.0, Y: 2.0, Z: -2.0}
                         Rotation: {X: 0.572966, Y: 0.0, Z: 0.0, W: 0.8195791}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
+                        Children:
+                            c094cd5466b7f338f086bd126e9a258b: ref!! 09a5a4b8-907c-4a6f-8de3-9983a272d85d
                     a63fe4177bc281feb5a8a470ae0994c3: !LightComponent
                         Id: 94b3052b-8f5b-4242-b7d2-998589abfeaf
                         Type: !LightAmbient
@@ -3881,13 +3901,16 @@ Hierarchy:
                         ColliderShapes:
                             99ce723de855002f386e2ad87bcf11f7: !SphereColliderShapeDesc
                                 Is2D: false
-                                Radius: 1.2
+                                Radius: 2.0
                                 LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
                     b21afbfd6b7ad31757db1d86a8619454: !GarbageCollectors.CollectionArea,GarbageCollectors.Game
                         Id: b2d296b2-1bc5-4c07-b41c-258a458ac0c3
-                        PullStrengthMultiplier: 20.0
-                        CollectRadius: 0.5
-                        CollectionSpeed: 0.5
+                        PullStrengthMultiplier: 100.0
+                        BrakeStrengthMultiplier: 40.0
+                        BrakeRatio: 0.5
+                        MaxSpeed: 2.0
+                        CollectRadius: 1.0
+                        CollectionSpeed: 2.0
                         CollectEffect: ref!! d091be3e-c162-4ba8-a969-0a98e5a44ea6
                         ContinuousEffect: ref!! 0855d8d8-75b8-482c-b2a5-da237232c9a6
             Base:

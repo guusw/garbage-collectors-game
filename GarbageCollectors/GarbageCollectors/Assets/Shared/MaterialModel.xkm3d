@@ -12,5 +12,5 @@ Materials:
     07d84ca53b7823d8fcdf7c46dab24576:
         Name: MaterialB
         MaterialInstance:
-            Material: 4928a6b6-ff00-41fb-9a11-620871af4bbe:MaterialTestB
+            Material: 4928a6b6-ff00-41fb-9a11-620871af4bbe:Materials/GarbageMat
 Skeleton: null

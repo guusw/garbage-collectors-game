@@ -404,3 +404,6 @@ Hierarchy:
                     5d04a6a9dc07ae193c18a52b244ffcc0: !GarbageCollectors.Grabber,GarbageCollectors.Game
                         Id: 518522e5-4c05-45b5-bd26-f4286e10c585
                         PullStrengthMultiplier: 10.0
+                        BrakeStrengthMultiplier: 10.0
+                        BrakeRatio: 0.5
+                        MaxSpeed: 2.0

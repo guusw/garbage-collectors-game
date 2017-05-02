@@ -11,6 +11,8 @@ using SiliconStudio.Core.Mathematics;
 using SiliconStudio.Xenko.Input;
 using SiliconStudio.Xenko.Engine;
 using SiliconStudio.Xenko.Physics;
+using SiliconStudio.Xenko.Rendering;
+using SiliconStudio.Xenko.Rendering.Materials;
 
 namespace GarbageCollectors
 {
@@ -31,7 +33,10 @@ namespace GarbageCollectors
         [DataMemberIgnore]
         public RigidbodyComponent Rigidbody { get; private set; }
 
+        [DataMemberIgnore]
         public ModelComponent ModelComponent { get; private set; }
+
+        public Material MaterialTemplate;
 
         public float InitialAngularVelocityMultiplier { get; set; } = 0.2f;
         public float InitialVelocityMultiplier { get; set; } = 1.0f;
@@ -49,6 +54,7 @@ namespace GarbageCollectors
             Model.Transform.Scale = Vector3.Zero;
             ModelComponent = Model.Get<ModelComponent>();
             ModelComponent.Enabled = true;
+            ModelComponent.Materials.Add(0, MaterialTemplate);
 
             Model.Transform.Rotation = Quaternion.RotationYawPitchRoll(
                 (float)random.NextDouble() * MathUtil.TwoPi,
@@ -76,6 +82,7 @@ namespace GarbageCollectors
                         State = GarbageState.Idle;
                         OnIdleEnter();
                     }
+                    // Curve + bounce
                     float curve = Bezier.Compute(t, .17f, .67f, .76f, 1.14f);
                     curve = curve < 1.0f ? curve : 2.0f - curve;
                     Model.Transform.Scale = new Vector3(curve);
@@ -117,6 +124,7 @@ namespace GarbageCollectors
         {
             float scale = 1.0f - CollectionPercentage;
             Model.Transform.Scale = new Vector3(scale * .7f + .3f);
+            SetGlow(CollectionPercentage);
         }
 
         private void OnIdleEnter()
@@ -137,6 +145,11 @@ namespace GarbageCollectors
                 d.Normalize();
                 Rigidbody.LinearVelocity = d * InitialVelocityMultiplier;
             }
+        }
+
+        private void SetGlow(float glow)
+        {
+            MaterialTemplate.Parameters.Set(MaterialKeys.EmissiveIntensity, glow);
         }
     }
 }

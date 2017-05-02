@@ -2257,12 +2257,15 @@ Hierarchy:
                         ColliderShapes:
                             99ce723de855002f386e2ad87bcf11f7: !SphereColliderShapeDesc
                                 Is2D: false
-                                Radius: 1.2
+                                Radius: 2.0
                                 LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
                     b21afbfd6b7ad31757db1d86a8619454: !GarbageCollectors.CollectionArea,GarbageCollectors.Game
                         Id: bceab2eb-4c2f-470d-889a-f81eb2e959b1
-                        PullStrengthMultiplier: 20.0
-                        CollectRadius: 0.5
-                        CollectionSpeed: 0.5
+                        PullStrengthMultiplier: 100.0
+                        BrakeStrengthMultiplier: 40.0
+                        BrakeRatio: 0.5
+                        MaxSpeed: 2.0
+                        CollectRadius: 1.0
+                        CollectionSpeed: 2.0
                         CollectEffect: ref!! 84310be1-6354-4d4e-8e81-7115b5f583fc
                         ContinuousEffect: ref!! a394407c-31d2-433a-8d8c-11e999ec95e7

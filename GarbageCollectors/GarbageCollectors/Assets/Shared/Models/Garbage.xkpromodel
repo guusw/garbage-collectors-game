@@ -7,4 +7,4 @@ Type: !TeapotProceduralModel
     UvScale: {X: 1.0, Y: 1.0}
     LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
     MaterialInstance:
-        Material: 4928a6b6-ff00-41fb-9a11-620871af4bbe:MaterialTestB
+        Material: 4928a6b6-ff00-41fb-9a11-620871af4bbe:Materials/GarbageMat

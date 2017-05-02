@@ -34,8 +34,8 @@ Hierarchy:
                             e55c3e669bc2a6d53808433b4382a656: ref!! 74cd5ffc-8044-46f4-aecf-e7607acf66a1
                     75c2399f02571e0ef22935b5cee77378: !GarbageCollectors.Garbage,GarbageCollectors.Game
                         Id: d2b0a42f-6a5f-46b7-aa58-148c04525212
+                        MaterialTemplate: 4928a6b6-ff00-41fb-9a11-620871af4bbe:Materials/GarbageMat
                         Model: ref!! 5ba7d4cf-c3f4-409e-99c5-9b99a52f61f4
-                        ModelComponent: null
                         InitialAngularVelocityMultiplier: 0.2
                         InitialVelocityMultiplier: 1.0
                         CollectionDecaySpeed: 2.0

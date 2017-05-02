@@ -18,6 +18,11 @@ namespace GarbageCollectors
         [DataMemberIgnore]
         public Ship Ship { get; private set; }
 
+        public GameManager Manager
+        {
+            get { return gameManager; }
+        }
+
         private GameManager gameManager;
 
         public Player(int index)

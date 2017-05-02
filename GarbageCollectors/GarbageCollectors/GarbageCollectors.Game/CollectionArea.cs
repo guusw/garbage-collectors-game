@@ -100,6 +100,7 @@ namespace GarbageCollectors
             SceneSystem.SceneInstance.RootScene.Entities.Remove(garbage.Entity);
             Team.OnGarbageCollected(garbage);
             CollectEffect.ParticleSystem.Play();
+            CollectEffect.ParticleSystem.ResetSimulation();
         }
 
         internal void AssignTeam(GameManager mgr, Team team)

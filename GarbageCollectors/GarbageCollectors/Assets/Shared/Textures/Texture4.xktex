@@ -1,0 +1,7 @@
+!Texture
+Id: 72a994bc-5230-4acf-8a08-2d81ede78d50
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../../../../../Users/g-gj-waals/Downloads/Yokohama3/Texture4.dds
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}

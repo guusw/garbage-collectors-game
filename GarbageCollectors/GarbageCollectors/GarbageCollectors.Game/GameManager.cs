@@ -3,8 +3,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using SiliconStudio.Core;
 using SiliconStudio.Core.Mathematics;
@@ -17,6 +19,7 @@ namespace GarbageCollectors
     {
         Starting,
         Running,
+        GameOver
     }
 
     public class GameManager : AsyncScript
@@ -42,8 +45,20 @@ namespace GarbageCollectors
         private float objectSpawnerTimeout = 0.0f;
         private int spawnIndex = 0;
 
+        public float GameTimer { get; private set; } = 0;
+        public float TimeLimit = 60;
+        public float TimeRemaining => Math.Max(0, TimeLimit - GameTimer);
+        
         public override async Task Execute()
         {
+            // no UI lol
+            //Console.SetWindowSize(200,80);
+            Console.Title = "Scoreboard";
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("PAD: (L)->Rotate (R)->Accelerate [LT]->Brake");
+            Console.WriteLine("KEYB: [WASD/Arrows]->Rotate & Accelerate [SHIFT]->Brake [R]->Restart");
+            Console.WriteLine("-------------------------------------------------------");
+
             // Count players
             for (int i = 0; i < Teams.Count; i++)
             {
@@ -62,8 +77,6 @@ namespace GarbageCollectors
                 player.AssignTeam(this, Teams[assignTeam++]);
                 Players.Add(player);
                 assignTeam %= Teams.Count;
-
-                player.Team.Spawner.SpawnForPlayer(player);
             }
 
             // Find spawn points
@@ -87,11 +100,16 @@ namespace GarbageCollectors
                 switch (State)
                 {
                     case GameState.Starting:
-                        State = GameState.Running;
+                        StartTick();
                         break;
                     case GameState.Running:
                         RunningTick();
                         break;
+                }
+                
+                if (Input.IsKeyDown(Keys.R)) // Restart
+                {
+                    Reset();
                 }
 
                 // Do stuff every new frame
@@ -99,8 +117,17 @@ namespace GarbageCollectors
             }
         }
 
+        private void StartTick()
+        {
+            SpawnPlayers();
+            State = GameState.Running;
+        }
+
+        private int consoleFrame = 0;
+
         void RunningTick()
         {
+            float dt = (float)Game.UpdateTime.Elapsed.TotalSeconds;
             if (objectSpawner.Instances.Count < MaximumInstances)
             {
                 if (objectSpawnerTimeout <= 0.0f)
@@ -111,12 +138,108 @@ namespace GarbageCollectors
                     objectSpawner.Spawn(SelectSpawnPosition());
                 }
             }
-            objectSpawnerTimeout -= (float)Game.UpdateTime.Elapsed.TotalSeconds;
+
+            objectSpawnerTimeout -= dt;
+
+            GameTimer += dt;
+
+            if (TimeRemaining <= 0)
+            {
+                State = GameState.GameOver;
+                GameOverEnter();
+            }
+
+            if ((consoleFrame++) >= 10)
+            {
+                var sortedTeams = Teams.OrderByDescending(r => r.Points);
+                int highestPoints = sortedTeams.First().Points;
+
+                // Show game timer
+                Console.SetCursorPosition(0, 3);
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.Black;
+                int it = (int)TimeRemaining;
+                char d = (it % 2) == 0 ? '~' : '-';
+                Console.WriteLine(PadString("\t\t{0} Time Remaining: {1:0.##} {0}".ToFormat(d, TimeRemaining)));
+
+                // Update score
+                int i = 0;
+                foreach(var team in sortedTeams)
+                {
+
+                    if (team.Points > 0 && team.Points == highestPoints)
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkGreen;
+                        Console.ForegroundColor = ConsoleColor.Black;
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+
+                    string s = " Team {0}>  {1}".ToFormat(team.Index + 1, team.Points);
+                   
+                    Console.WriteLine(PadString(s));
+                    i++;
+                }
+                consoleFrame = 0;
+            }
+        }
+
+        private string PadString(string inStr, int max = 32)
+        {
+            string padded = "";
+            for (int j = 0; j < max; j++)
+            {
+                if (j < inStr.Length)
+                    padded += inStr[j];
+                else
+                    padded += " ";
+            }
+            return padded;
+        }
+
+        private void GameOverEnter()
+        {
+            Console.SetCursorPosition(0, 3);
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.Red;
+            int it = (int)TimeRemaining;
+            char d = (it % 2) == 0 ? '~' : '-';
+            Console.WriteLine(PadString("\t\t- Game over -"));
+        }
+
+        void SpawnPlayers()
+        {
+            foreach (var player in Players)
+            {
+                player.Team.Spawner.SpawnForPlayer(player);
+            }
+        }
+
+        void Reset()
+        {
+            GameTimer = 0;
+
+            foreach (var player in Players)
+                player.AssignShip(null);
+
+            foreach (var team in Teams)
+            {
+                team.Reset();
+                team.Spawner.Reset();
+            }
+
+            objectSpawner.Reset();
+
+            State = GameState.Starting;
         }
 
         private Vector3 SelectSpawnPosition()
         {
-            var actualSpawner = objectSpawnPoints[spawnIndex % objectSpawnPoints.Count];
+            int spawnJitter = random.Next(-1, 1);
+            var actualSpawner = objectSpawnPoints[Math.Abs(spawnIndex + spawnJitter) % objectSpawnPoints.Count];
             spawnIndex++;
             return actualSpawner.Position;
         }

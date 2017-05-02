@@ -8,7 +8,7 @@ Attributes:
             Value: 0.75
     Diffuse: !MaterialDiffuseMapFeature
         DiffuseMap: !ComputeColor
-            Value: {R: 0.58775, G: 0.02204064, B: 0.02204064, A: 1.0}
+            Value: {R: 0.40025, G: 0.40025, B: 0.40025, A: 1.0}
     DiffuseModel: !MaterialDiffuseLambertModelFeature {}
     Specular: !MaterialSpecularMapFeature
         SpecularMap: !ComputeFloat4
@@ -19,6 +19,11 @@ Attributes:
         Fresnel: !MaterialSpecularMicrofacetFresnelSchlick {}
         Visibility: !MaterialSpecularMicrofacetVisibilitySmithSchlickGGX {}
         NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionGGX {}
+    Emissive: !MaterialEmissiveMapFeature
+        EmissiveMap: !ComputeFloat4
+            Value: {X: 10.0, Y: 10.0, Z: 10.0, W: 0.0}
+        Intensity: !ComputeFloat
+            Value: 0.0
     Overrides:
         UVScale: {X: 1.0, Y: 1.0}
 Layers: {}

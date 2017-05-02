@@ -24,7 +24,10 @@ namespace GarbageCollectors
 
         public override void Update()
         {
-            if (Player == null)
+            if (Player == null || Player.Manager == null)
+                return;
+
+            if (Player.Manager.State == GameState.GameOver)
                 return;
 
             InputState input = InputState.None;

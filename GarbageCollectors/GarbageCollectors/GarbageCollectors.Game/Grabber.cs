@@ -18,8 +18,10 @@ namespace GarbageCollectors
         [DataMemberIgnore]
         public RigidbodyComponent Rigidbody { get; private set; }
         
-        public float PullStrengthMultiplier = 10.0f;
-        public float BrakeStrengthMultiplier = 1.0f;
+        public float PullStrengthMultiplier = 5.0f;
+        public float BrakeStrengthMultiplier = 10.0f;
+        public float BrakeRatio = 0.5f;
+        public float MaxSpeed = 2.0f;
 
         private float PullFarFalloffRadius;
 
@@ -68,22 +70,39 @@ namespace GarbageCollectors
             if (closest != null)
             {
                 float l = closestDelta.Length();
+
+                float r = l / PullFarFalloffRadius;
+                r = MathUtil.Clamp(r, 0, 1);
                 
-                // Far distance falloff
-                float pullStrength = MathUtil.Clamp(1-(l / PullFarFalloffRadius), 0, 1);
-
-
-
                 closestDelta.Z = 0.0f;
-                Vector3 direction = Vector3.Normalize(closestDelta);
+                Vector3 direction = -Vector3.Normalize(closestDelta);
 
-                //Vector3 newVelocity = closest.Rigidbody.LinearVelocity -
-                //                      direction * pullStrength * PullStrengthMultiplier *
-                //                      (float)Game.UpdateTime.Elapsed.TotalSeconds;
-                //float length = newVelocity.Length();
-                closest.Rigidbody.ApplyForce(-direction * pullStrength * PullStrengthMultiplier);
-                Vector3 targetVelocity = Vector3.Normalize(closest.Rigidbody.LinearVelocity);
-                closest.Rigidbody.ApplyForce(Vector3.Normalize(targetVelocity) * pullStrength * BrakeStrengthMultiplier);
+                Vector3 newVelocity = closest.Rigidbody.LinearVelocity;
+                float currentSpeed = Vector3.Dot(direction, newVelocity);
+
+                float pullStrength = 1 - r;
+                float addSpeed = pullStrength * PullStrengthMultiplier *
+                                 (float)Game.UpdateTime.Elapsed.TotalSeconds;
+                if (currentSpeed < MaxSpeed)
+                    newVelocity += direction * addSpeed;
+
+                float length = newVelocity.Length();
+                if (length > 0)
+                {
+                    float brakeStrength = r / BrakeRatio;
+                    brakeStrength = MathUtil.Clamp(brakeStrength, 0, 1);
+                    brakeStrength = 1 - brakeStrength;
+                    if (brakeStrength > 0)
+                    {
+                        length -= brakeStrength * BrakeStrengthMultiplier * (float)Game.UpdateTime.Elapsed.TotalSeconds;
+                        if (length < 0)
+                            length = 0;
+                        newVelocity.Normalize();
+                        newVelocity *= length;
+                    }
+                }
+
+                closest.Rigidbody.LinearVelocity = newVelocity;
             }
 
             LastPullTarget = closest;

@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2BE06389-417F-4A5B-9431-52B9AF567E5C}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GarbageCollectors</RootNamespace>
     <AssemblyName>GarbageCollectors</AssemblyName>
@@ -95,8 +95,7 @@
     <ApplicationIcon>Resources\Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject>GarbageCollectors.GarbageCollectorsApp</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Condition="'$(SiliconStudioRuntime)' == ''" Include="System" />
