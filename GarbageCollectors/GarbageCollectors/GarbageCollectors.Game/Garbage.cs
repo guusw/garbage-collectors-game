@@ -30,14 +30,19 @@ namespace GarbageCollectors
 
         [DataMemberIgnore]
         public RigidbodyComponent Rigidbody { get; private set; }
+
         public ModelComponent ModelComponent { get; private set; }
-        
+
         public float InitialAngularVelocityMultiplier { get; set; } = 0.2f;
         public float InitialVelocityMultiplier { get; set; } = 1.0f;
 
         private static Random random = new Random();
 
         private float stateTimer = 0.0f;
+
+        public float CollectionPercentage { get; private set; } = 0.0f;
+        public float CollectionDecaySpeed { get; set; } = 2.0f;
+        private float timeSinceCollect = 0.0f;
 
         public override void Start()
         {
@@ -79,22 +84,54 @@ namespace GarbageCollectors
                     break;
             }
 
-            stateTimer += (float)Game.UpdateTime.Elapsed.TotalSeconds;
+            float dt = (float)Game.UpdateTime.Elapsed.TotalSeconds;
+            stateTimer += dt;
+            timeSinceCollect += dt;
+
+            if (timeSinceCollect > 0.2f)
+            {
+                CollectionPercentage = Math.Max(0, CollectionPercentage - dt * CollectionDecaySpeed);
+                if (CollectionPercentage <= 0)
+                {
+                    CollectionAnimTick();
+                }
+            }
+            if (CollectionPercentage > 0.0f)
+            {
+                CollectionAnimTick();
+            }
+        }
+
+        public bool Collect(CollectionArea area, float speed)
+        {
+            if (CollectionPercentage > 1.0f)
+            {
+                return true;
+            }
+            timeSinceCollect = 0.0f;
+            CollectionPercentage += speed;
+            return false;
+        }
+
+        private void CollectionAnimTick()
+        {
+            float scale = 1.0f - CollectionPercentage;
+            Model.Transform.Scale = new Vector3(scale * .7f + .3f);
         }
 
         private void OnIdleEnter()
         {
-            // TODO: Give initial velocity/spin
             Rigidbody.AngularVelocity = new Vector3(
-                (float)random.NextDouble() * MathUtil.TwoPi,
-                (float)random.NextDouble() * MathUtil.TwoPi,
-                (float)random.NextDouble() * MathUtil.TwoPi) * 2.0f - 1.0f * InitialAngularVelocityMultiplier;
+                                            (float)random.NextDouble() * MathUtil.TwoPi,
+                                            (float)random.NextDouble() * MathUtil.TwoPi,
+                                            (float)random.NextDouble() * MathUtil.TwoPi) * 2.0f -
+                                        1.0f * InitialAngularVelocityMultiplier;
             Rigidbody.AngularDamping = 0.0f;
 
             Vector3 d = new Vector3(
-                (float)random.NextDouble(),
-                (float)random.NextDouble(),
-                0.5f) * 2.0f - 1.0f;
+                            (float)random.NextDouble(),
+                            (float)random.NextDouble(),
+                            0.5f) * 2.0f - 1.0f;
             if (d.LengthSquared() > 0)
             {
                 d.Normalize();

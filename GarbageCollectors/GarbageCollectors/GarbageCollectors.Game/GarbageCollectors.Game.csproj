@@ -111,7 +111,7 @@
     <Compile Include="BackgroundLayer.cs" />
     <Compile Include="BaseSpawner.cs" />
     <Compile Include="Bezier.cs" />
-    <Compile Include="CapturePoint.cs" />
+    <Compile Include="CollectionArea.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="Garbage.cs" />
     <Compile Include="Grabber.cs" />

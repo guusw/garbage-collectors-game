@@ -37,9 +37,9 @@ namespace GarbageCollectors
                 return null;
 
             var newInstance = Prefab.Instantiate().First();
-            SceneSystem.SceneInstance.RootScene.Entities.Add(newInstance);
-
             newInstance.Transform.Position = position;
+
+            SceneSystem.SceneInstance.RootScene.Entities.Add(newInstance);
             
             instances.Add(newInstance);
 

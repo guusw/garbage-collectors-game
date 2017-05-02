@@ -38,6 +38,7 @@ Hierarchy:
                         ModelComponent: null
                         InitialAngularVelocityMultiplier: 0.2
                         InitialVelocityMultiplier: 1.0
+                        CollectionDecaySpeed: 2.0
                     923e1bb8d661e0f557db5ea7fcf22db5: !RigidbodyComponent
                         Id: c2b1c120-6306-4500-8f8d-40fb9a40281a
                         CanSleep: false

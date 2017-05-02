@@ -42,7 +42,7 @@ Hierarchy:
                                             UVClockwise: Degree0
                                     Material: !ParticleMaterialComputeColor
                                         ComputeColor: !ComputeFloat4
-                                            Value: {X: 1.0, Y: 20.0, Z: 50.0, W: 2.0}
+                                            Value: {X: 1.0, Y: 10.0, Z: 25.0, W: 2.0}
                                         UVBuilder: null
                                         ForceTexCoords: false
                                     Spawners:
@@ -173,7 +173,7 @@ Hierarchy:
                                             UVClockwise: Degree0
                                     Material: !ParticleMaterialComputeColor
                                         ComputeColor: !ComputeFloat4
-                                            Value: {X: 1.0, Y: 20.0, Z: 50.0, W: 2.0}
+                                            Value: {X: 1.0, Y: 10.0, Z: 25.0, W: 2.0}
                                         UVBuilder: null
                                         ForceTexCoords: false
                                     Spawners:
@@ -347,9 +347,9 @@ Hierarchy:
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: -0.21643962, W: 0.976296}
                     9dff5d1ee3fbb38be29b62d11f0097fa: !GarbageCollectors.Ship,GarbageCollectors.Game
                         Id: 471fefc7-e453-4206-8f9f-80b817d55814
-                        RotationSpeed: {Radians: 3.8397243}
-                        AcclerationSpeed: 10.0
-                        MaximumSpeed: 5.0
+                        RotationSpeed: {Radians: 4.01425743}
+                        AcclerationSpeed: 8.0
+                        MaximumSpeed: 4.0
                         BrakeSpeed: 10.0
                         ColorModels:
                             3868f8ef4c5a895685da8c07556c171b:
@@ -403,5 +403,4 @@ Hierarchy:
                                 LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
                     5d04a6a9dc07ae193c18a52b244ffcc0: !GarbageCollectors.Grabber,GarbageCollectors.Game
                         Id: 518522e5-4c05-45b5-bd26-f4286e10c585
-                        PullFalloffRadius: 0.75
                         PullStrengthMultiplier: 10.0

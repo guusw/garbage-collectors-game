@@ -48,6 +48,7 @@ namespace GarbageCollectors
             for (int i = 0; i < Teams.Count; i++)
             {
                 Teams[i].AssignTeamIndex(this, i);
+                Teams[i].CollectionArea.AssignTeam(this, Teams[i]);
             }
 
             if (Teams.Count == 0)

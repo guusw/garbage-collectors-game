@@ -15,8 +15,13 @@ namespace GarbageCollectors
 
         public PlayerSpawner Spawner;
 
+        public CollectionArea CollectionArea;
+
+        public int Points { get; private set; } = 0;
+
         private GameManager gameManager;
         private List<Player> players = new List<Player>();
+
 
         public bool HasPlayer(Player player)
         {
@@ -37,6 +42,19 @@ namespace GarbageCollectors
         internal void AddPlayer(Player player)
         {
             players.Add(player);
+        }
+
+        internal void OnGarbageCollected(Garbage garbage)
+        {
+            Points++;
+        }
+
+        /// <summary>
+        /// Reset game state (points)
+        /// </summary>
+        internal void Reset()
+        {
+            Points = 0;
         }
     }
 }

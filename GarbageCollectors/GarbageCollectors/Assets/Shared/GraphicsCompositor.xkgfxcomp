@@ -130,8 +130,11 @@ SharedRenderers:
         PostEffects: !PostProcessingEffects ref!! 6527fe37-aade-46ba-8e59-b2ff74b0eddd
         LightShafts: null
         VRSettings:
-            Enabled: false
-            RequiredApis: {}
+            Enabled*: false
+            RequiredApis:
+                7ada6b2e0b3d83c017f0d9db096f53f1*:
+                    Api: Oculus
+                    ResolutionScale: 1.0
             Overlays: {}
         MSAALevel: None
         MSAAResolver: {}
@@ -149,8 +152,12 @@ SharedRenderers:
         PostEffects: null
         LightShafts: null
         VRSettings:
-            Enabled: false
-            RequiredApis: {}
+            Enabled*: false
+            IgnoreCameraRotation*: false
+            RequiredApis:
+                7161a74c05fc8efe4a9877ce625acbed*:
+                    Api: Oculus
+                    ResolutionScale: 1.0
             Overlays: {}
         MSAALevel: None
         MSAAResolver: {}

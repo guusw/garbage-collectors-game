@@ -17,20 +17,28 @@ namespace GarbageCollectors
     {
         [DataMemberIgnore]
         public RigidbodyComponent Rigidbody { get; private set; }
-
-        public float PullFalloffRadius = 10.0f;
+        
         public float PullStrengthMultiplier = 10.0f;
+        public float BrakeStrengthMultiplier = 1.0f;
 
-        private Garbage lastPullTarget = null;
+        private float PullFarFalloffRadius;
+
+        protected Garbage LastPullTarget { get; private set; } = null;
 
         public override void Start()
         {
             Rigidbody = Entity.Get<RigidbodyComponent>();
             Rigidbody.IsKinematic = true;
             Rigidbody.IsTrigger = true;
+            PullFarFalloffRadius = (Rigidbody.ColliderShape.Description as SphereColliderShapeDesc).Radius;
         }
 
         public override void Update()
+        {
+            UpdateGrab();
+        }
+
+        public void UpdateGrab()
         {
             float closestDistanceSquared = float.MaxValue;
             Vector3 closestDelta = Vector3.Zero;
@@ -39,13 +47,15 @@ namespace GarbageCollectors
             {
                 var a = collision.ColliderA;
                 var b = collision.ColliderB;
-                if(b == Rigidbody)
+                if (b == Rigidbody)
                     Utilities.Swap(ref a, ref b);
                 var garbage = b.Entity.Get<Garbage>();
                 if (garbage == null)
                     continue;
+                if (!SelectTarget(garbage))
+                    continue;
                 Vector3 d = b.Entity.Transform.WorldMatrix.TranslationVector -
-                    Entity.Transform.WorldMatrix.TranslationVector;
+                            Entity.Transform.WorldMatrix.TranslationVector;
                 float l = d.LengthSquared();
                 if (l < closestDistanceSquared)
                 {
@@ -58,14 +68,30 @@ namespace GarbageCollectors
             if (closest != null)
             {
                 float l = closestDelta.Length();
-                float pullStrength = (float)Math.Min(1.0f, Math.Pow(l / PullFalloffRadius, 2.0f));
+                
+                // Far distance falloff
+                float pullStrength = MathUtil.Clamp(1-(l / PullFarFalloffRadius), 0, 1);
+
+
 
                 closestDelta.Z = 0.0f;
                 Vector3 direction = Vector3.Normalize(closestDelta);
-                closest.Rigidbody.LinearVelocity += -direction * pullStrength * PullStrengthMultiplier * (float)Game.UpdateTime.Elapsed.TotalSeconds;
+
+                //Vector3 newVelocity = closest.Rigidbody.LinearVelocity -
+                //                      direction * pullStrength * PullStrengthMultiplier *
+                //                      (float)Game.UpdateTime.Elapsed.TotalSeconds;
+                //float length = newVelocity.Length();
+                closest.Rigidbody.ApplyForce(-direction * pullStrength * PullStrengthMultiplier);
+                Vector3 targetVelocity = Vector3.Normalize(closest.Rigidbody.LinearVelocity);
+                closest.Rigidbody.ApplyForce(Vector3.Normalize(targetVelocity) * pullStrength * BrakeStrengthMultiplier);
             }
 
-            lastPullTarget = closest;
+            LastPullTarget = closest;
+        }
+
+        protected virtual bool SelectTarget(Garbage garbage)
+        {
+            return true;
         }
     }
 }
